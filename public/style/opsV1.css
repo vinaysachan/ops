@@ -1,0 +1,128 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22 Nov, 2014, 8:29:20 PM
+    Author     : Vinay Sachan
+*/
+
+body{
+    background-color: #ffffff;
+}
+
+
+header { 
+    padding: 0px 0px 15px 0px;
+}
+
+header #social-header{
+    border: solid 1px #e3e6e8 ;
+    border-top: none;
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    float: right; 
+} 
+#social-header li{
+    float: left;
+    margin: 0;
+}
+
+#social-header li a:hover {
+    color: #fff;
+}
+
+#social-header li a.twitter:hover {
+    background-color: #00aced;
+}
+#social-header li a.gplus:hover {
+    background-color: #dd4b39;
+}
+#social-header li a.fb:hover {
+    background-color: #3b5998;
+}
+#social-header li a.linkedin:hover {
+    background-color: #007bb6;
+}
+#social-header li a.youtube:hover {
+    background-color: #bb0000;
+}
+#social-header li a.rss:hover {
+    background-color: #ef922f;
+}
+
+#social-header li a{  
+    color: #444;
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 0;
+    min-width: 40px;
+    padding: 7px 10px;
+    text-align: center;
+    transition: all 0.25s ease 0s; 
+}
+
+
+.logo_img {
+    padding-top: 15px;
+}
+#search_box { 
+    margin-top: 10px;
+}
+
+#search_box input{
+    background-color: #FCFCFC;
+    border: 1px solid #DDDDDD; 
+    border-radius: 0;
+    border-right: none;
+    box-shadow: none;
+    height: unset;
+}
+
+#search_box input:focus{
+    color: #555555;
+}
+
+#search_box button{
+    border: 1px solid #428BCA; 
+    border-radius: 0;
+    border-left: none;
+}
+
+.navbar-toggle {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    border: 1px solid #dddddd;
+    border-radius: 4px; 
+    margin-right: 0;
+    margin-top: 25px; 
+    position: relative;
+}
+
+
+@media (max-width: 767px){
+    .logo_img {
+        display: unset;
+    }
+    #social-header {
+        display: none !important;
+    }
+  
+}
+
+
+@media (max-width: 991px){
+    .logo_img {
+        display: unset;
+    } 
+}
+
+
+
+.brred {
+    border: solid 1px red;
+}
