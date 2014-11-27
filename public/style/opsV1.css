@@ -10,6 +10,7 @@ and open the template in the editor.
 
 body{
     background-color: #ffffff;
+    font-size: 12px
 }
 
 
@@ -102,6 +103,96 @@ header #social-header{
     margin-top: 25px; 
     position: relative;
 }
+.navbar-default{
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #e7e7e7;
+    border-radius: 0;
+    border-top: 1px solid #e7e7e7;
+    min-height: 0;
+    padding: 0;
+    z-index: 99;
+}
+
+.navbar {   
+    border-bottom: 1px solid #E7E7E7;
+    border-top: 1px solid #E7E7E7;
+    background-color: #F8F8F8;
+    width: 100%; 
+    z-index: 99; 
+    padding:0 10px;
+    min-height: 0px; 
+}
+.navbar-toggle-btn,.logo {
+    display: none;
+}
+.navbar-nav > li > a {  
+    border-right: 1px solid #F1F1F1; 
+    color: #333333 !important;
+    display: block;
+    padding: 10px 35px 10px 10px;
+    position: relative;
+    z-index: 1;  
+}
+
+.navbar-nav > li:first-child > a {
+    margin-left: 0px; 
+    border-left: 1px solid #F1F1F1; 
+} 
+.navbar-nav > li > a:hover , .navbar-nav > li > a:focus { 
+    background-color: #F3F3F5 !important;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #F3F3F5;
+    border-color: #F1F1F1;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #E7E7E7 ;
+    color: black;
+    border-color: #E7E7E7; 
+    display: block; 
+}
+.navbar-nav > li.dropdown > a:after {
+    content: "\f0d7"; 
+    font-family: FontAwesome; 
+    position: absolute;
+    right: 12px; 
+    transition: all 0.2s ease-in-out 0s;
+}
+.navbar .navbar-nav > .open > a { 
+    border-color: #E9E9E9; 
+}  
+.navbar-nav > li > ul.dropdown-menu {
+    border: medium none;
+    font-weight: normal;
+    left: 0px;
+    margin: 0;
+    padding: 0;
+    width: 210px;
+    z-index: 99999; 
+}
+.navbar-nav > li:first-child > ul.dropdown-menu  {
+    left: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 767px){
@@ -111,7 +202,10 @@ header #social-header{
     #social-header {
         display: none !important;
     }
-  
+    .navbar-default{ 
+        border-bottom: none; 
+        border-top: none; 
+    }
 }
 
 
