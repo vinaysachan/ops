@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>  
@@ -13,22 +14,14 @@
         <link rel="shortcut icon" href="logo.png"/>
         <link href="public/bootstrap-3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
         <link href="public/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen"/>
-        
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Fontin-Sans">
-
-        
-        <link href="public/style/opsV1.css" rel="stylesheet" media="screen"/>
+        <link href="public/style/opsV1.css" rel="stylesheet" media="screen"/> 
+        <script src="public/script/jquery-2.1.1.min.js"></script>
     </head>
     <body>
-        <header>
+        <header class="">
             <div class="container-fluid">
                 <div class="row text-center">
                     <div class="col-md-4 col-sm-3">
-                        <span class="navbar-header pull-left">
-                            <button type="button" class="navbar-toggle pull-left" data-toggle="offcanvas">
-                                <i class="fa fa-bars"></i> Left Menu
-                            </button>
-                        </span>
                         <a title="" href="#">
                             <img class="img-responsive logo_img" src="public/img/new_logo.png">
                         </a>
@@ -153,7 +146,7 @@
                                 <li><a href="#">One more separated link</a></li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> 
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Link</a></li>
                         <li class="dropdown">
@@ -171,8 +164,8 @@
             </div><!-- /.container-fluid -->
         </nav>
         <div class="container-fluid">
-            <div class="row row-offcanvas-left row-offcanvas"> 
-                <div class="col-md-3 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+            <div class="row row-offcanvas-left row-offcanvassidebar-offcanvas"> 
+                <div class="   col-md-3 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                     <ul class="left_menu" role="menu" aria-labelledby="dropdownMenu" >  
                         <li>
                             <a href="#">
@@ -302,16 +295,7 @@
                         <li class='next'><a href ="">Next page</a></li>
                     </ul>
                 </div>
-                <div class="brred col-md-2 col-sm-2 right_bar">
-                    <div class="startpetition">
-                        <h2>Talk to Us</h2>
-                        <div class="innerpanel">
-                            <span>Get active with us to help us continue to defend human rights around the world</span>
-                            <a class="sociallink" href="https://twitter.com/AIIndia" target="_blank">5893</a>
-                            <a class="sociallink facebook" href="https://www.facebook.com/AIIndia" target="_blank">84254</a>
-                            <a class="sociallink youtube" href="http://www.youtube.com/user/AmnestyIndiaVideos" target="_blank">141</a>
-                        </div>
-                    </div>
+                <div class="brred col-md-2 col-sm-2" style="padding: 0px;">
                     <ol>
                         <li>Google Translator</li>
                         <li>Facebook Likes</li>
@@ -336,7 +320,6 @@
                 </ul> 
             </span> 
         </footer>
-        <script src="public/script/jquery-2.1.1.min.js"></script>
         <script src="public/bootstrap-3.2.0/js/bootstrap.min.js"></script>
         <script src="public/script/mainjs.js"></script> 
         <script>jQuery(document).ready(function () {
