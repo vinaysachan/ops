@@ -1,4 +1,0 @@
-ops
-===
-
-Online PHP Study
