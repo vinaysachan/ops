@@ -1,16 +1,20 @@
 <?php
 
-// Use an autoloader!
-require 'libs/Bootstrap.php';
-require 'libs/Controller.php';
-require 'libs/Model.php';
-require 'libs/View.php';
+require 'config.php';
+require 'util/Util.php';
+require './util/Navigation.php';
 
-// Library
-require 'libs/Database.php';
-require 'libs/Session.php';
+function __autoload($class) {
+    require LIBS . $class . ".php";
+}
 
-require 'config/paths.php';
-require 'config/database.php';
+// Load the Bootstrap!
+$bootstrap = new Bootstrap();
 
-$app = new Bootstrap();
+// Optional Path Settings
+//$bootstrap->setControllerPath();
+//$bootstrap->setModelPath();
+//$bootstrap->setDefaultFile();
+//$bootstrap->setErrorFile();
+
+$bootstrap->init();

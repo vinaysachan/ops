@@ -2,20 +2,30 @@
 
 class View {
 
-	function __construct() {
-		//echo 'this is the view';
-	}
+    private $__viewpage = null;
 
-	public function render($name, $noInclude = false)
-	{
-		if ($noInclude == true) {
-			require 'views/' . $name . '.php';	
-		}
-		else {
-			require 'views/header.php';
-			require 'views/' . $name . '.php';
-			require 'views/footer.php';	
-		}
-	}
+    function __construct() {
+        //echo 'this is the view';
+    }
+            
+    public function render($name, $noInclude = false) {
+        if ($noInclude == TRUE) {
+            require 'views/' . $name . '.php';
+        } else {
+            $__viewpage = $name;
+            require 'views/layouts/' . $this->layout . '.php';
+        }
+    }
+
+    public function menuCreator($data, $menuType) {
+        switch ($menuType) {
+            case $menuType:
+                Util::$menuType($data);
+                break;
+            default:
+                Util::defaultMenu($data);
+                break;
+        }
+    }
 
 }
