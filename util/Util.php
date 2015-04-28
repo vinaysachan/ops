@@ -5,18 +5,25 @@
  */
 class Util {
 
-    public static function handleLogin() {
-        @session_start();
-        $logged = $_SESSION['loggedIn'];
-        if ($logged == false) {
-            session_destroy();
-            header('location: ../login');
-            exit;
+    public static function handleAdminLogin() {
+        Session::init();
+        $logged = Session::get('loggedIn');
+        if ($logged == FALSE) {
+            Session::destroy();
+            header('location:' . URL . 'login/admin');
+            exit();
         }
     }
 
     public static function baseUrl($url, $label, $title = '', $class = '', $extra = '') {
-        $url = ($url == '') ? URL : URL . $url;
+        if ($url == '#' || $url == 'javascript:void(0)') {
+            $url = $url;
+        } else if ($url == '') {
+            $url = URL;
+        } else {
+            $url = URL . $url;
+        }
+//        $url = ($url == '') ? URL : URL . $url;
         $title = ($title == '') ? $label : $title;
         $label = ($label == '') ? SITENAME : $label;
         $class = ($class == '') ? '' : 'class=' . $class;
@@ -43,6 +50,33 @@ class Util {
                 self::createMenu($value['subMenu'], 'dropdown-menu', 'menu');
             } else {
                 echo '<li>';
+                echo self::baseUrl($value['link'], $value['label']);
+            }
+            echo '</li>';
+        }
+        echo '</ul>';
+    }
+
+    public static function adminLeftMenu($data = NULL, $active) {
+        self::createAdminMenu($data, $uclass = 'left_menu', $role = 'menu', $extra = ' aria-labelledby="dropdownMenu"', $active);
+    }
+
+    private static function createAdminMenu($arr, $uclass = NULL, $role = NULL, $extra = NULL, $active = NULL) {
+        $role = ($role == NULL) ? '' : 'role = "' . $role . '"';
+        $uclass = ($uclass == NULL) ? '' : ' class = "' . $uclass . '"';
+        echo '<ul ' . $role . $uclass . $extra . '>';
+        foreach ($arr as $key => $value) {
+            if (isset($value['subMenu'])) {
+                echo '<li>';
+                echo self::baseUrl($value['link'], $value['label']);
+                self::createAdminMenu($value['subMenu'], 'sub-menu','','',$active);
+            } else {
+                if ($value['link'] == $active) {
+                    $activeclass = 'class = "active"';
+                } else {
+                    $activeclass = '';
+                }
+                echo '<li ' . $activeclass . '>';
                 echo self::baseUrl($value['link'], $value['label']);
             }
             echo '</li>';

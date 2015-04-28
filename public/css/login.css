@@ -25,8 +25,8 @@ body{
     height: 100%;
     overflow: hidden;
     background-color: #edecec;
-    color: #5e5e5e;
-    font-family: roboto;
+    color: #5e5e5e; 
+    font-family: "Roboto Slab",Helvetica,Arial,sans-serif;
     font-size: 13px;
     line-height: 1.42857;
     margin: 0;
@@ -48,4 +48,10 @@ body{
     width: 500px;
     margin-bottom: 20px !important;
     text-align:left;
+}
+.alert {
+    border: 1px solid transparent;
+    border-radius: 0px;
+    margin-bottom: 20px;
+    padding: 15px;
 }

@@ -6,18 +6,32 @@ class Admin extends Controller {
 
     function __construct($param = NULL) {
         parent::__construct();
+        Util::handleAdminLogin();
     }
 
-    function index($param = NULL) {
-        $this->view->layout = 'layout_note';
-        $this->view->render('scripts/php/index');
+    public function index($param = NULL) {
+        $this->view->active = 'admin';
+        $this->view->render('scripts/admin/index');
     }
-    
-    function login ($param = NULL) {
-        $this->view->layout = 'layout_adminlogin';
-        $this->view->render('scripts/admin/login');
+
+    public function content($param = NULL) {
+        $this->view->active = 'admin/content';
+        $this->view->render('scripts/admin/content');
     }
-    
-    
+
+    public function leftmenu($param = NULL) {
+        $this->view->active = 'admin/leftmenu';
+        $this->view->render('scripts/admin/leftmenu');
+    }
+
+    public function alexagraph($param = NULL) {
+        $this->view->active = 'admin/alexagraph';
+        $this->view->render('scripts/admin/alexagraph');
+    }
+
+    public function alexaadd($param = NULL) {
+        $this->view->active = 'admin/alexaadd';
+        $this->view->render('scripts/admin/alexaadd');
+    }
 
 }

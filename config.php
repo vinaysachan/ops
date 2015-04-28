@@ -17,3 +17,8 @@ define('HASH_GENERAL_KEY', 'MixitUp200');
 
 // This is for database passwords only
 define('HASH_PASSWORD_KEY', 'catsFLYhigh2000miles');
+
+define('FLAG_Y', 'Y');
+define('FLAG_N', 'N');
+
+define('ROLE_ADMIN', 'ADMIN'); 

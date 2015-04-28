@@ -7,7 +7,7 @@ class View {
     function __construct() {
         //echo 'this is the view';
     }
-            
+
     public function render($name, $noInclude = false) {
         if ($noInclude == TRUE) {
             require 'views/' . $name . '.php';
@@ -17,13 +17,13 @@ class View {
         }
     }
 
-    public function menuCreator($data, $menuType) {
+    public function menuCreator($data, $menuType,$active) {
         switch ($menuType) {
             case $menuType:
-                Util::$menuType($data);
+                Util::$menuType($data,$active);
                 break;
             default:
-                Util::defaultMenu($data);
+                Util::defaultMenu($data,$active);
                 break;
         }
     }
