@@ -16,6 +16,7 @@ class Admin extends Controller {
 
     public function content($param = NULL) {
         $this->view->active = 'admin/content';
+        $this->view->heading = $this->view->title = 'Manage Page Content';
         $this->view->render('scripts/admin/content');
     }
 

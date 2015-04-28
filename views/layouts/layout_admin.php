@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Title</title>
+        <title><?=(empty($this->title)?'Admin Panel':$this->title)?></title>
         <meta name="description" content="descriptiondescriptiondescriptiondescription">
         <meta name="author" content="Vinay Sachan"/> 
         <meta name="Keywords" content="KeywordsKeywordsKeywords" />
@@ -75,7 +75,7 @@
                 </div>         
                 <div class="col-sm-9 col-md-9">
                     <div class="box"> 
-                        <h1>Dashboard</h1>
+                        <h1><?=(empty($this->heading)?'Page Header':$this->heading)?></h1>
                         <div class="content">
                             <?php
                             require 'views/' . $__viewpage . '.php';
