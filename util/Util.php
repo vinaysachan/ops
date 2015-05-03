@@ -26,7 +26,7 @@ class Util {
 //        $url = ($url == '') ? URL : URL . $url;
         $title = ($title == '') ? $label : $title;
         $label = ($label == '') ? SITENAME : $label;
-        $class = ($class == '') ? '' : 'class=' . $class;
+        $class = ($class == '') ? '' : 'class="' . $class . '"';
         return '<a ' . $extra . ' href="' . $url . '" title="' . $title . '" ' . $class . ' >' . $label . '</a>';
     }
 
@@ -44,7 +44,7 @@ class Util {
         echo '<ul ' . $role . $uclass . '>';
         foreach ($arr as $key => $value) {
             if (isset($value['subMenu'])) {
-                echo '<li class="active dropdown">';
+                echo '<li class="dropdown">';
                 $extra = 'aria-expanded="false" role="button" data-toggle="dropdown"';
                 echo self::baseUrl($value['link'], $value['label'], '', 'dropdown-toggle', $extra);
                 self::createMenu($value['subMenu'], 'dropdown-menu', 'menu');
@@ -69,7 +69,7 @@ class Util {
             if (isset($value['subMenu'])) {
                 echo '<li>';
                 echo self::baseUrl($value['link'], $value['label']);
-                self::createAdminMenu($value['subMenu'], 'sub-menu','','',$active);
+                self::createAdminMenu($value['subMenu'], 'sub-menu', '', '', $active);
             } else {
                 if ($value['link'] == $active) {
                     $activeclass = 'class = "active"';

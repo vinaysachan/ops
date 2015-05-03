@@ -367,12 +367,14 @@ ul.left_menu li.active ul li.current a:before{
     padding: 15px;
 }
 
+/***Padding And Marging ****/
 .p0{
     padding: 0px;
 }
 .pr0{
     padding-right: 0px;
 }
+.mt5{margin-top: 5px;}
 
 .content{
     padding: 0 15px;
@@ -435,3 +437,17 @@ footer a {color: #0088CC;text-decoration: none;}
 .footer-links { margin: 0;}
 .footer-links li:first-child { padding-left: 0;}
 .footer-links li {display: inline;padding: 0 2px;}
+
+h2 >small{
+    display: block;
+    line-height: 160%;
+    margin-top: 8px;
+    font-family:"Open Sans",Helvetica,Arial,sans-serif;
+}
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child::before{
+    line-height:16px !important;
+}
+
+.bg-primary{
+    padding: 15px;
+}

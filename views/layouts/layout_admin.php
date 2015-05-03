@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title><?=(empty($this->title)?'Admin Panel':$this->title)?></title>
+        <title><?= (empty($this->title) ? 'Admin Panel' : $this->title) ?></title>
         <meta name="description" content="descriptiondescriptiondescriptiondescription">
         <meta name="author" content="Vinay Sachan"/> 
         <meta name="Keywords" content="KeywordsKeywordsKeywords" />
@@ -22,7 +22,19 @@
         <script type="text/javascript" src="<?= URL ?>public/js/jquery-2.1.1.min.js"></script> 
         <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script src="<?= URL ?>public/bootstrap-3.2.0/js/bootstrap.min.js"></script> 
-        <script type="text/javascript" src="<?= URL ?>public/js/custom.js"></script> 
+        <script type="text/javascript" src="<?= URL ?>public/js/custom.js"></script>
+        <?php
+        if (isset($this->js)) {
+            foreach ($this->js as $js) {
+                echo '<script type="text/javascript" src="' . URL . $js . '"></script>';
+            }
+        }
+        if (isset($this->css)) {
+            foreach ($this->css as $css) {
+                echo '<link href="' . URL . $css . '" rel="stylesheet" media="screen"/>';
+            }
+        }
+        ?>
         <script> jQuery(document).ready(function () {
                 Main.init();
             });
@@ -75,8 +87,19 @@
                 </div>         
                 <div class="col-sm-9 col-md-9">
                     <div class="box"> 
-                        <h1><?=(empty($this->heading)?'Page Header':$this->heading)?></h1>
+                        <h1><?= (empty($this->heading) ? 'Page Header' : $this->heading) ?></h1>
                         <div class="content">
+                            <?php if (isset($_REQUEST['succ-msg'])) { ?> 
+                                <div class="alert alert-success alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Congrats!</strong> <?= urldecode($_REQUEST['succ-msg']) ?>
+                                </div>
+                            <?php } if (isset($_REQUEST['succ-err'])) { ?> 
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Error !</strong> <?= urldecode($_REQUEST['succ-err']) ?>
+                                </div>
+                            <?php } ?>
                             <?php
                             require 'views/' . $__viewpage . '.php';
                             ?>

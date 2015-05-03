@@ -34,7 +34,6 @@
                 <div class="navbar-header">
                     <button class="navbar-toggle-btn pull-left" data-toggle="offcanvas" type="button">Left Menu <i class="fa fa-indent"></i>
                     </button>
-                    <?= Util::baseUrl('', '', 'Online PHP Study', 'navbar-brand') ?>
                     <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle-btn collapsed pull-right" type="button">
                         <i class="fa fa-outdent"></i>
                         Top Menu
@@ -43,7 +42,7 @@
                 <div class="navbar-collapse collapse">
                     <?php
                     $allLinks = Navigation::MainHeaderMenu();
-                    $this->menuCreator($allLinks, $menuType = 'frontPageMenu');
+                    $this->menuCreator($allLinks, $menuType = 'frontPageMenu','');
                     ?>
                 </div><!--/.nav-collapse -->
             </div>
