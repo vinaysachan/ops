@@ -2,7 +2,7 @@
 
 require 'config.php';
 require 'util/Util.php';
-require './util/Navigation.php';
+require 'util/Navigation.php';
 
 function __autoload($class) {
     require LIBS . $class . ".php";

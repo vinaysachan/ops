@@ -13,12 +13,7 @@ define('DB_PASS', 'root');
 
 // The sitewide hashkey, do not change this because its used for passwords!
 // This is for other hash keys... Not sure yet
-define('HASH_GENERAL_KEY', 'MixitUp200');
+define('HASH_GENERAL_KEY', 'OnlinePHPStudy2015');
 
 // This is for database passwords only
-define('HASH_PASSWORD_KEY', 'catsFLYhigh2000miles');
-
-define('FLAG_Y', 'Y');
-define('FLAG_N', 'N');
-
-define('ROLE_ADMIN', 'ADMIN'); 
+define('HASH_PASSWORD_KEY', 'VinayAkankshaSinghSachan253008');

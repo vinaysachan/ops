@@ -2,7 +2,7 @@
 
 class Controller {
 
-    public $__layout = 'layout_default';
+    public $__layout = 'default';
 
     function __construct() {
         //echo 'Main controller<br />';

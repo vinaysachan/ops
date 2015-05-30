@@ -54,41 +54,4 @@ class Navigation {
         );
     }
 
-    public static function AdminLeftMenu() {
-        return array(
-            array(
-                'label' => 'Dashboard',
-                'link' => 'admin'
-            ),
-            array(
-                'label' => 'Page Contents',
-                'link' => 'javascript:void(0)',
-                'subMenu' => array(
-                    array(
-                        'label' => 'Content',
-                        'link' => 'admin/content',
-                    ),
-                    array(
-                        'label' => 'Left Menu',
-                        'link' => 'admin/leftmenu',
-                    ),
-                )
-            ),
-            array(
-                'label' => 'Alexa',
-                'link' => 'javascript:void(0)',
-                'subMenu' => array(
-                    array(
-                        'label' => 'Alexa Graph',
-                        'link' => 'admin/alexagraph',
-                    ),
-                    array(
-                        'label' => 'Save Alexa rank',
-                        'link' => 'admin/alexaadd',
-                    ),
-                )
-            )
-        );
-    }
-
 }
