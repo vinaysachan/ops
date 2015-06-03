@@ -36,10 +36,7 @@ class Index extends Controller {
             ['name'=> 'robots','content' => 'index,follow'],
         ];
           
-        
-        
-        
-        
+         
         
         $this->view->render('scripts/index/index');
     }

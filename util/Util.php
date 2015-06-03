@@ -94,4 +94,31 @@ class Util {
         echo '</ul>';
     }
 
+    public static function adminLeftMenu($data = NULL, $active) {
+        self::createAdminMenu($data, $uclass = 'left_menu', $role = 'menu', $extra = ' aria-labelledby="dropdownMenu"', $active);
+    }
+
+    private static function createAdminMenu($arr, $uclass = NULL, $role = NULL, $extra = NULL, $active = NULL) {
+        $role = ($role == NULL) ? '' : 'role = "' . $role . '"';
+        $uclass = ($uclass == NULL) ? '' : ' class = "' . $uclass . '"';
+        echo '<ul ' . $role . $uclass . $extra . '>';
+        foreach ($arr as $key => $value) {
+            if (isset($value['subMenu'])) {
+                echo '<li>';
+                echo self::baseUrl($value['link'], $value['label']);
+                self::createAdminMenu($value['subMenu'], 'sub-menu', '', '', $active);
+            } else {
+                if ($value['link'] == $active) {
+                    $activeclass = 'class = "active"';
+                } else {
+                    $activeclass = '';
+                }
+                echo '<li ' . $activeclass . '>';
+                echo self::baseUrl($value['link'], $value['label']);
+            }
+            echo '</li>';
+        }
+        echo '</ul>';
+    }
+
 }
