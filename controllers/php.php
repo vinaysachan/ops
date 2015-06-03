@@ -41,35 +41,27 @@ class Php extends Controller {
     function basic_php($param = NULL) {
         $url = ($param == NULL) ? 'php/basic_php' : 'php/basic_php/' . $param;
         $this->view->active = $url;
-        
         $params['parent_page'] = BASIC_PHP;
         $params['site_path'] = ($param == NULL) ? FRONT_PAGE : $param;
         $contentData = $this->model->getPageContent($params);
         $this->view->heading = $contentData[0]['page_heading'];
-        
         $this->view->pageContent = $contentData;
-        
         $this->view->allLeftLinks = Navigation::basicPHPLeftMenu();
-
         $this->view->render('scripts/php/basic_php');
     }
-    
-    
+
 //    
 
     function advance_php($param = NULL) {
-        $url = ($param == NULL) ? 'php/'.ADVANCE_PHP : 'php/'.ADVANCE_PHP.'/' . $param;
+        $url = ($param == NULL) ? 'php/' . ADVANCE_PHP : 'php/' . ADVANCE_PHP . '/' . $param;
         $this->view->active = $url;
-        
         $params['parent_page'] = ADVANCE_PHP;
         $params['site_path'] = ($param == NULL) ? FRONT_PAGE : $param;
         $contentData = $this->model->getPageContent($params);
         $this->view->heading = $contentData[0]['page_heading'];
-        
         $this->view->pageContent = $contentData;
-        
         $this->view->allLeftLinks = Navigation::advancePHPLeftMenu();
-
         $this->view->render('scripts/php/basic_php');
     }
+
 }

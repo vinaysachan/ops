@@ -86,7 +86,7 @@ class Util {
                 echo self::baseUrl($value['link'], $value['label'], '', 'dropdown-toggle', $extra);
                 self::createMenu($value['subMenu'], 'dropdown-menu', 'menu');
             } else {
-                echo '<li>';
+                echo '<li class="' . $activeclass . '">';
                 echo self::baseUrl($value['link'], $value['label']);
             }
             echo '</li>';

@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 4 Jun, 2015, 12:03:47 AM
+    Author     : Vinay Sachan 
+*/
+
+
+
+.blogtop{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #fff none repeat scroll 0 0;
+    border-color: #e9e9e9 #e9e9e9 -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none none;
+    border-width: 1px 1px medium medium;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    display: block;
+    min-height: 100px;
+    /*    position: relative;
+        text-align: center;*/
+}
+
+.blogo{ 
+    text-align: center; 
+}
+
+.blogo > img {
+    border-radius: 10px;
+    margin: 20px auto;
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.bsearch{
+    margin-bottom: 10px;
+}
+
+
+.bsearch button {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #428bca #428bca #428bca -moz-use-text-color;
+    border-image: none;
+    border-radius: 0;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px medium; 
+    height: 42px;
+}
+
+.bsearch input {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #fcfcfc;
+    border-color: #eeeeee -moz-use-text-color #eeeeee #eeeeee;
+    border-image: none;
+    border-radius: 3px;
+    border-style: solid none solid solid;
+    border-width: 1px medium 1px 1px;
+    box-shadow: none;
+    height: 42px;
+    color: #848484;
+}
