@@ -73,18 +73,66 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="blog-page">
+                        <?php require 'views/' . $__viewpage . '.php'; ?>
                     </div> 
-
-
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                    Main Page Content
-
-                    <?php
-                    require 'views/' . $__viewpage . '.php';
-                    ?>
                 </div>
-                <div class="col-sm-3 col-md-3 brred">
-                    Right Menu
+                <div class="col-sm-3 col-md-3 pl0  ">
+                    <div class="right-box"> 
+                        <h4>Categories</h4>
+                        <div class="right-box-content">
+                            <ul class="blog-categories">
+                                <li><a href="#">PHP (116)</a></li>
+                                <li><a href="#">MySQL (7)</a></li>
+                                <li><a href="#">PHP Framework (4)</a></li>
+                                <li><a href="#">Designing (23)</a></li>
+                                <li><a href="#">Jobs (5)</a></li>
+                            </ul>
+                        </div> 
+                    </div>
+                    <div class="right-box"> 
+                        <h4>Sign-Up to Newsletter</h4>
+                        <div class="right-box-content">
+                            <div class="bsignup">
+                                <p>Subscribe my blog updates and jobs via Email</p>
+                                <div class="input-group">
+                                    <input type="text" placeholder="Your email address" class="form-control">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-success">Sign up!</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="right-box"> 
+                        <h4>Most Popular Posts</h4>
+                        <div class="right-box-content">
+                            <ul class="blog-popular-post">
+                                <li><a href="#">PHP Login Page Example.</a></li>
+                                <li><a href="#">Search Engine Optimization (SEO)</a></li>
+                                <li><a href="#">Auto Load and Refresh Div every 10 Seconds with jQuery.</a></li>
+                                <li><a href="#">How to post into a Facebook Page with PHP using Graph API</a></li>
+                                <li><a href="#">Create a RESTful services using Slim PHP Framework</a></li>
+                                <li><a href="#">Enabling APC (Alternative PHP Cache) for PHP</a></li>
+                                <li><a href="#">Custom Audio Player with Jquery Audio Controls Plugin</a></li>
+                            </ul>
+                        </div> 
+                    </div>
+                    <div class="right-box"> 
+                        <h4><a class="twitter-timeline" data-dnt="true" href="https://twitter.com/onlinephpstudy" data-widget-id="606553796878045185">Tweets by @onlinephpstudy</a></h4>
+                        <div class="right-box-content">
+                            <script>!function (d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                    if (!d.getElementById(id)) {
+                                        js = d.createElement(s);
+                                        js.id = id;
+                                        js.src = p + "://platform.twitter.com/widgets.js";
+                                        fjs.parentNode.insertBefore(js, fjs);
+                                    }
+                                }(document, "script", "twitter-wjs");</script>
+                        </div> 
+                    </div>
                 </div>
             </div>
         </div>

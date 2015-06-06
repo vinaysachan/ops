@@ -45,7 +45,7 @@ class Navigation {
             ),
             array(
                 'label' => 'Blogs / Articles',
-                'link' => 'blogs',
+                'link' => 'blog',
             ),
             array(
                 'label' => 'Jobs & Interviews',

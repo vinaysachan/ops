@@ -368,14 +368,17 @@ ul.left_menu li.active ul li.current a:before{
 }
 
 /***Padding And Marging ****/
-.p0{
-    padding: 0px;
-}
-.pr0{
-    padding-right: 0px;
-}
+.p0{ padding: 0px;}
+.m0{ margin: 0px;}
+.pr0{ padding-right: 0px; }
+.pr10{ padding-right: 10px;}
+.pl0{ padding-left: 0px;}
+.mt0{margin-top: 0px;}
 .mt5{margin-top: 5px;}
 .mt15{margin-top: 15px;}
+
+
+
 .content{
     padding: 0 15px;
 }
