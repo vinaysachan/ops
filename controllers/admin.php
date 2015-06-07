@@ -2,7 +2,7 @@
 
 class Admin extends Controller {
 
-    public $__layout = 'layout_admin';
+    public $__layout = 'admin_layout';
 
     function __construct($param = NULL) {
         parent::__construct();
