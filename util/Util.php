@@ -7,6 +7,16 @@ require 'constant.php';
  */
 class Util {
 
+    public static function handleAdminLogin() {
+        Session::init();
+        $logged = Session::get('loggedIn');
+        if ($logged == FALSE) {
+            Session::destroy();
+            header('location:' . URL . 'login/admin');
+            exit();
+        }
+    }
+
     public static function metatags($AllmetaTags) {
         $m = '';
         foreach ($AllmetaTags as $metatags) {

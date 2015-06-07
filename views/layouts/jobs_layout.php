@@ -44,7 +44,6 @@
                 </div>
             </div>
         </nav>
-
         <div class="container-fluid">
             <div class="row"> 
                 <div class="col-sm-9 col-md-9">
@@ -59,12 +58,11 @@
                                         <i class="fa fa-home"></i><a href="#">Home</a>
                                     </li>
                                     <li class="bc">
-                                        <a href="#">Blogs</a>
+                                        <a href="#">Jobs</a>
                                     </li>
                                     <li class="bc">
-                                        <a href="#">Category - PHP</a>
+                                        Interview Question Answer
                                     </li>
-                                    <li class="bc">How to Search in MySQL using full-text indexing in PHP</li>
                                 </ol>
                                 <div class="bsearch">
                                     <div class="input-group">
@@ -83,14 +81,16 @@
                 </div>
                 <div class="col-sm-3 col-md-3 pl0  ">
                     <div class="right-box"> 
-                        <h4>Categories</h4>
+                        <h4>Interview Question Categories</h4>
                         <div class="right-box-content">
                             <ul class="blog-categories">
-                                <li class="active"><a href="#">PHP (116)</a></li>
-                                <li><a href="#">MySQL (7)</a></li>
-                                <li><a href="#">PHP Framework (4)</a></li>
-                                <li><a href="#">Designing (23)</a></li>
-                                <li><a href="#">Jobs (5)</a></li>
+                                <li class="active"><a href="#">PHP Interview (116)</a></li>
+                                <li><a href="#">HTML, CSS Interview(7)</a></li>
+                                <li><a href="#">JS, AngularJS, JQuery Interview(7)</a></li>
+                                <li><a href="#">HR Interview(7)</a></li>
+                                <li><a href="#">DBMS, MySQL Interview(4)</a></li>
+                                <li><a href="#">MangoDB, NoSQL Interview(23)</a></li>
+                                <li><a href="#">Quantitative & Reasoning (5)</a></li>
                             </ul>
                         </div> 
                     </div>
@@ -139,8 +139,6 @@
                 </div>
             </div>
         </div>
-
-
         <footer>
             <span class="text-left">
                 Copyright &copy; 2012 - 2014  All rights reserved. 

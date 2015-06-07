@@ -38,5 +38,37 @@ class Blog extends Controller {
         ];
         $this->view->render('scripts/blog/index');
     }
+    
+    
+    function view($blogUrl) {
+        $this->view->title = SITENAME . ' : Blog detail Page'; //Change this In future 
+        $this->view->metaTags = [
+            ['charset' => 'utf-8'],
+            ['http-equiv' => 'Content-Type', 'content' => 'text/html;charset=utf-8'],
+            ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'],
+            ['name' => 'author', 'content' => 'Vinay Sachan'],
+            ['name' => 'description', 'content' => 'put your page description here'],
+            ['name' => 'Keywords', 'content' => 'put your page Keywords here'],
+            ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'],
+            ['name' => 'robots', 'content' => 'index,follow'],
+        ];
+        $this->view->render('scripts/blog/view');
+    }
+    
+    function cat($catagery) {
+        $this->view->title = SITENAME . ' : Blog Page'; //Change this In future
+        $this->view->active_cat  = $catagery ; 
+        $this->view->metaTags = [
+            ['charset' => 'utf-8'],
+            ['http-equiv' => 'Content-Type', 'content' => 'text/html;charset=utf-8'],
+            ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'],
+            ['name' => 'author', 'content' => 'Vinay Sachan'],
+            ['name' => 'description', 'content' => 'put your page description here'],
+            ['name' => 'Keywords', 'content' => 'put your page Keywords here'],
+            ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'],
+            ['name' => 'robots', 'content' => 'index,follow'],
+        ];
+        $this->view->render('scripts/blog/index');
+    }
 
 }

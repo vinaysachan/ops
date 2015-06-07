@@ -16,4 +16,4 @@ define('DB_PASS', 'root');
 define('HASH_GENERAL_KEY', 'OnlinePHPStudy2015');
 
 // This is for database passwords only
-define('HASH_PASSWORD_KEY', 'VinayAkankshaSinghSachan253008');
+define('HASH_PASSWORD_KEY', 'AkankshaVinaySinghSachan');

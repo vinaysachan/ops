@@ -44,16 +44,34 @@ class Navigation {
                 'link' => 'cms',
             ),
             array(
-                'label' => 'Blogs / Articles',
+                'label' => 'Blogs',
                 'link' => 'blog',
             ),
             array(
                 'label' => 'Jobs & Interviews',
                 'link' => 'jobs',
+                'subMenu' => array(
+//                    array(
+//                        'label' => 'Search Jobs',
+//                        'link' => 'jobs',
+//                    ),
+//                    array(
+//                        'label' => 'Interview Tips',
+//                        'link' => 'jobs/interview_tips',
+//                    ),
+                    array(
+                        'label' => 'Interview Questions',
+                        'link' => 'jobs/interview_question_answer',
+                    ),
+//                    array(
+//                        'label' => 'PHP Test',
+//                        'link' => 'jobs/test',
+//                    ),
+                )
             ),
         );
     }
-
+ 
     public static function basicPHPLeftMenu() {
         return array(
             array(
