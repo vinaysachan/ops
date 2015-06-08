@@ -7,73 +7,37 @@ class Admin extends Controller {
     function __construct($param = NULL) {
         parent::__construct();
         Util::handleAdminLogin();
+        $this->view->css = array(
+            'http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600',
+            'http://fonts.googleapis.com/css?family=Roboto+Slab:400,700',
+            'public/bootstrap-3.2.0/css/bootstrap.css',
+            'public/font-awesome/css/font-awesome.min.css',
+            'public/css/main.css'
+        );
+        $this->view->js = array(
+            'public/js/custom.js',
+            'public/js/jquery-2.1.1.min.js',
+            'public/js/jquery-ui.min.js',
+            'public/bootstrap-3.2.0/js/bootstrap.min.js',
+            'public/js/custom.js'
+        );
+        $this->view->metaTags = [
+            ['charset' => 'utf-8'],
+            ['http-equiv' => 'Content-Type', 'content' => 'text/html;charset=utf-8'],
+            ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'],
+            ['name' => 'author', 'content' => 'Vinay Sachan'],
+            ['name' => 'description', 'content' => 'put your page description here'],
+            ['name' => 'Keywords', 'content' => 'put your page Keywords here'],
+            ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'],
+            ['name' => 'robots', 'content' => 'noindex, nofollow'],
+        ];
     }
 
-    public function index($param = NULL) {
+    function index() {
         $this->view->active = 'admin';
         $this->view->render('scripts/admin/index');
     }
 
-    public function content($param = NULL) {
-        $this->view->active = 'admin/content';
-        $this->view->heading = $this->view->title = 'Manage Page Content';
-        /* js files */
-        $this->view->js = ['public/dataTables/js/dataTables.responsive.min.js', 'public/dataTables/js/jquery.dataTables.min.js'];
-        /* css files */
-        $this->view->css = ['public/dataTables/css/jquery.dataTables.css', 'public/dataTables/css/dataTables.responsive.css'];
-        $this->view->contentLists = $this->model->getContenLists();
-        $this->view->render('scripts/admin/content');
-    }
-
-    public function contentae($id = NULL) {
-        $this->view->active = 'admin/content';
-        $this->view->heading = $this->view->title = 'Manage Page Content';
-        /* js files */
-        $this->view->js = ['public/form-validator/jquery.form-validator.min.js', 'public/select2/js/select2.full.min.js', 'public/tinymce/tinymce.min.js'];
-        /* css files */
-        $this->view->css = ['public/form-validator/form-validator.css', 'public/select2/css/select2.min.css'];
-        $this->view->pageLists = $this->model->getPageLists();
-        if (empty($id)) {
-            /* in case of Add new page Content */
-            $this->view->subheading = 'Add new Page Content<small><em>Here add the content of page</em></small>';
-            if (isset($_POST['add'])) {
-                $data = [
-                    'parent' => $_POST['ppage'],
-                    'page_heading' => $_POST['page_heading'],
-                    'site_path' => $_POST['site_path'],
-                    'content' => $_POST['content'],
-                    'active' => $_POST['status']
-                ];
-                $this->model->contentInsert($data);
-                $msg = urlencode('Page content added Successfully');
-                header('location: ' . URL . 'admin/content?succ-msg=' . $msg);
-            }
-        } else {
-            /* in case of Update existing page Content */
-            $this->view->subheading = 'Update Page Content<small><em>Here update the content of page</em></small>';
-            $contentData = $this->model->getContenData($id);
-            if (empty($contentData)) {
-                $msg = urlencode('Unable to update page content data');
-                header('location: ' . URL . 'admin/content?succ-err=' . $msg);
-            } else {
-                $this->view->contentdata = $contentData;
-                if (isset($_POST['update'])) {
-                    $data = [
-                        'parent' => $_POST['ppage'],
-                        'page_heading' => $_POST['page_heading'],
-                        'site_path' => $_POST['site_path'],
-                        'content' => $_POST['content'],
-                        'active' => $_POST['status']
-                    ];
-                    $this->model->contentUpdate($data, $id);
-                    $msg = urlencode('Page content Updated Successfully');
-                    header('location: ' . URL . 'admin/content?succ-msg=' . $msg);
-                }
-            }
-        }
-        $this->view->render('scripts/admin/contentae');
-    }
- 
     public function alexagraph($param = NULL) {
         $this->view->active = 'admin/alexagraph';
         $this->view->render('scripts/admin/alexagraph');
@@ -84,4 +48,14 @@ class Admin extends Controller {
         $this->view->render('scripts/admin/alexaadd');
     }
 
+    
+    public function content($param = NULL) {
+        $this->view->active = 'admin/content';
+        $this->view->render('scripts/admin/content');
+    }
+
+//    public function alexaaddaa($param = NULL) {
+//        $this->view->active = 'admin/alexaaddaa';
+//        $this->view->render('scripts/admin/alexaaddaa');
+//    }
 }

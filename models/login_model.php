@@ -8,9 +8,6 @@ class Login_model extends Model {
 
     public function adminloginrun() {
         $password = Hash::create('sha256', $_POST['password'], HASH_PASSWORD_KEY);
-        
-        echo $password ;
-        
         $WhereCon = ['username' => $_POST['username'],
             'password' => $password,
             'active' => FLAG_Y,

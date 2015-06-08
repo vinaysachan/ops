@@ -147,20 +147,6 @@ class Navigation {
                 'link' => 'admin'
             ),
             array(
-                'label' => 'Page Contents',
-                'link' => 'javascript:void(0)',
-                'subMenu' => array(
-                    array(
-                        'label' => 'Content',
-                        'link' => 'admin/content',
-                    ),
-//                    array(
-//                        'label' => 'Left Menu',
-//                        'link' => 'admin/leftmenu',
-//                    ),
-                )
-            ),
-            array(
                 'label' => 'Alexa',
                 'link' => 'javascript:void(0)',
                 'subMenu' => array(
@@ -172,6 +158,20 @@ class Navigation {
                         'label' => 'Save Alexa rank',
                         'link' => 'admin/alexaadd',
                     ),
+                )
+            ),
+            array(
+                'label' => 'Manage Page Content',
+                'link' => 'javascript:void(0)',
+                'subMenu' => array(
+                    array(
+                        'label' => 'Page Content',
+                        'link' => 'admin/content',
+                    ),
+//                    array(
+//                        'label' => 'Save Alexa rank',
+//                        'link' => 'admin/alexaaddaa',
+//                    ),
                 )
             )
         );

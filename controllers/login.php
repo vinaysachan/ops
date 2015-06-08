@@ -4,12 +4,35 @@ class Login extends Controller {
 
     public $__layout = 'login_layout';
 
-    function __construct($param = NULL) {
+    function __construct() {
         parent::__construct();
         Session::init();
+        $this->view->css = [
+            'http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600',
+            'http://fonts.googleapis.com/css?family=Roboto+Slab:400,700',
+            'public/bootstrap-3.2.0/css/bootstrap.css',
+            'public/font-awesome/css/font-awesome.min.css',
+            'public/css/login.css'
+        ];
+        $this->view->js = [
+            'public/js/jquery-2.1.1.min.js',
+            'http://code.jquery.com/ui/1.11.4/jquery-ui.js',
+            'public/bootstrap-3.2.0/js/bootstrap.min.js'
+        ];
     }
 
-    public function admin($param = NULL) {
+    function admin() {
+        $this->view->title = SITENAME . ' Admin Login';
+        $this->view->metaTags = [
+            ['charset' => 'utf-8'],
+            ['http-equiv' => 'Content-Type', 'content' => 'text/html;charset=utf-8'],
+            ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'],
+            ['name' => 'author', 'content' => 'Vinay Sachan'],
+            ['name' => 'description', 'content' => 'put your page description here'],
+            ['name' => 'Keywords', 'content' => 'put your page Keywords here'],
+            ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'],
+            ['name' => 'robots', 'content' => 'noindex, nofollow'],
+        ];
         if (isset($_POST['submit'])) {
             if (empty($_POST['username'])) {
                 $error[] = 'Please enter username.';
@@ -23,7 +46,7 @@ class Login extends Controller {
                     $error[] = 'Username And password not match';
                 } else {
                     Session::set('role', $data[0]['role']);
-                    Session::set('loggedIn', true);
+                    Session::set('loggedIn', TRUE);
                     Session::set('userid', $data[0]['id']);
                     Session::set('name', $data[0]['name']);
                     header('location:' . URL . 'admin');
@@ -31,8 +54,7 @@ class Login extends Controller {
             }
             $this->view->error = $error;
         }
-        $this->view->layout = 'login_layout';
-        $this->view->render('scripts/admin/login');
+        $this->view->render('scripts/login/admin');
     }
 
     public function adminlogout($param = NULL) {
