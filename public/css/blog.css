@@ -431,7 +431,8 @@ article .blog-comments:before{ content: "\f086";}
     border-bottom: 1px solid #f0f0f0;
 }
 .qa-list .q {
-    border: 1px solid #f0f0f0;
+    border: 5px solid #e3e3e3;
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.15);
     padding: 10px;
     margin-bottom: 15px;
 }

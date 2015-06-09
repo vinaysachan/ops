@@ -48,9 +48,17 @@ class Admin extends Controller {
         $this->view->render('scripts/admin/alexaadd');
     }
 
-    
     public function content($param = NULL) {
         $this->view->active = 'admin/content';
+        $this->view->heading = $this->view->title = 'Manage Page Content';
+        // ==> Add some more js files
+        $this->view->js[] = 'public/dataTables/js/jquery.dataTables.min.js';
+        $this->view->js[] = 'public/dataTables/Responsive/js/dataTables.responsive.min.js';
+        // ==> Add some more css files
+        $this->view->css[] = 'public/dataTables/css/jquery.dataTables.css';
+        $this->view->css[] = 'public/dataTables/Responsive/css/dataTables.responsive.css';
+        // ==> get All Page 
+        $this->view->contentLists = $this->model->getContenLists();
         $this->view->render('scripts/admin/content');
     }
 
