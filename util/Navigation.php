@@ -161,12 +161,16 @@ class Navigation {
                 )
             ),
             array(
-                'label' => 'Manage Page Content',
+                'label' => 'Manage Site Content',
                 'link' => 'javascript:void(0)',
                 'subMenu' => array(
                     array(
-                        'label' => 'Page Content',
+                        'label' => 'Manage Page Content',
                         'link' => 'admin/content',
+                    ),
+                    array(
+                        'label' => 'Manage Blag Category',
+                        'link' => 'admin/blog_cat',
                     ),
 //                    array(
 //                        'label' => 'Save Alexa rank',

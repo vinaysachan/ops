@@ -69,7 +69,37 @@ body {
     .dropdown-menu{
         box-shadow: 0 0 10px rgba(51, 51, 51, 0.38);
         min-width: 260px;
+        background-color: #4285f4;
+        border: 0px;
+        border-top: 4px solid #fecd0b ;
+        z-index: 9999;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        border-radius:none;
+        padding: 0px;
     }
+
+    .dropdown-menu li {
+        border: 1px solid #4285f4; 
+        float: left;
+        list-style: outside none none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .dropdown-menu li:hover{
+        border: 1px solid white;
+    }
+
+    .dropdown-menu li a {
+        color: white;
+        display: block;
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius:none;
+    }
+
+
 
     .navbar-nav > li.dropdown > a::after {
         content: "\f0d7"; 

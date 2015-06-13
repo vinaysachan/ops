@@ -40,7 +40,10 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active dropdown">
-                            <a class="dropdown-toggle" title="PHP / Database (Mysql)" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <?= Session::get('name') ?></a>
+                            <a class="dropdown-toggle" title="<?= Session::get('name') ?>" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <img src="<?= Session::get('img') ?>" style="padding: 0px; display: table-row-group; margin: -15px 0px;" height="48px;">
+                                <?= Session::get('name') ?>
+                            </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <?= Util::baseUrl('login/adminlogout', 'Sign-out <i class="fa fa-sign-out"></i>', 'sign-out') ?>

@@ -57,12 +57,74 @@ class Admin extends Controller {
         // ==> Add some more css files
         $this->view->css[] = 'public/dataTables/css/jquery.dataTables.css';
         $this->view->css[] = 'public/dataTables/Responsive/css/dataTables.responsive.css';
-        // ==> get All Page 
+        // ==> Get All Page 
         $this->view->contentLists = $this->model->getContenLists();
         $this->view->render('scripts/admin/content');
     }
 
-//    public function alexaaddaa($param = NULL) {
+    public function contentae($id = NULL) {
+        $this->view->active = 'admin/content';
+        $title = ($id == NULL) ? 'Add New Page Content' : 'Update Page Content';
+        $this->view->heading = $this->view->title = $title;
+        // ==> Add some more js files
+        $this->view->js[] = 'public/tinymce/tinymce.min.js';
+        $this->view->js[] = 'public/select2/js/select2.full.min.js';
+        // ==> Add some more css files
+        $this->view->css[] = 'public/select2/css/select2.min.css';
+        // ==> Get All Parent Page
+        $this->view->pageLists = $this->model->getPageLists();
+        if ($id == NULL) {
+            $this->view->subheading = 'Add new Page Content<small><em>Here add the content of page</em></small>';
+            if (isset($_POST['add'])) {
+                $data = [
+                    'parent' => $_POST['ppage'],
+                    'page_heading' => $_POST['page_heading'],
+                    'site_path' => $_POST['site_path'],
+                    'content' => $_POST['content'],
+                    'active' => $_POST['status'],
+                    'date_created' => date("Y-m-d H:i:s")
+                ];
+                $this->model->contentInsert($data);
+                $msg = urlencode('Page content added Successfully');
+                header('location: ' . URL . 'admin/content?succ-msg=' . $msg);
+            }
+        } else {
+            $this->view->subheading = 'Update Page Content<small><em>Here update the content of page</em></small>';
+            $contentData = $this->model->getContenData($id);
+            if (empty($contentData)) {
+                $msg = urlencode('Unable to update page content data');
+                header('location: ' . URL . 'admin/content?succ-err=' . $msg);
+            } else {
+                $this->view->contentdata = $contentData;
+                if (isset($_POST['update'])) {
+                    $data = [
+                        'parent' => $_POST['ppage'],
+                        'page_heading' => $_POST['page_heading'],
+                        'site_path' => $_POST['site_path'],
+                        'content' => $_POST['content'],
+                        'active' => $_POST['status']
+                    ];
+                    $this->model->contentUpdate($data, $id);
+                    $msg = urlencode('Page content Updated Successfully');
+                    header('location: ' . URL . 'admin/content?succ-msg=' . $msg);
+                }
+            }
+        }
+        $this->view->render('scripts/admin/contentae');
+    }
+
+    public function blog_cat() {
+        $this->view->active = 'admin/blog_cat';
+        $this->view->heading = $this->view->title = 'Manage Blog Category';
+        $this->view->subheading = 'List of All Blog categories<span class="pull-right"><small><em>Here we can add and update the category</em></small></span>';
+        // ==> Add Js file for validation and Ajax 
+        $this->view->js[] = 'views/scripts/admin/js/default.js';
+
+         
+        $this->view->render('scripts/admin/blog_cat');
+    }
+
+//        public function alexaaddaa($param = NULL) {
 //        $this->view->active = 'admin/alexaaddaa';
 //        $this->view->render('scripts/admin/alexaaddaa');
 //    }

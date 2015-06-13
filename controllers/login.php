@@ -49,6 +49,7 @@ class Login extends Controller {
                     Session::set('loggedIn', TRUE);
                     Session::set('userid', $data[0]['id']);
                     Session::set('name', $data[0]['name']);
+                    Session::set('img', $data[0]['img']);
                     header('location:' . URL . 'admin');
                 }
             }
