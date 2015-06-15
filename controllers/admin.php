@@ -115,10 +115,9 @@ class Admin extends Controller {
 
     public function blog_cat() {
         $this->view->active = 'admin/blog_cat';
-        $this->view->heading = $this->view->title = 'Manage Blog Category';
-        $this->view->subheading = 'List of All Blog categories<span class="pull-right"><small><em>Here we can add and update the category</em></small></span>';
+        $this->view->heading = $this->view->title = 'Manage Blog Category'; 
         // ==> Add Js file for validation and Ajax 
-        $this->view->js[] = 'views/scripts/admin/js/default.js';
+        $this->view->js[] = 'views/scripts/admin/js/blog_cat.js';
 
          
         $this->view->render('scripts/admin/blog_cat');

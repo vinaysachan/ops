@@ -1,5 +1,9 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+
 require 'config.php';
 require 'util/Util.php';
 require 'util/Navigation.php';

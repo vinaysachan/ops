@@ -14,6 +14,11 @@ class Admin_ajax extends Controller {
             echo json_encode('NoDel');
         }
     }
+    
+    function xhrGetblogCatList(){
+	$this->model->xhrGetblogCatList();
+        exit();
+    }
 
 }
 
