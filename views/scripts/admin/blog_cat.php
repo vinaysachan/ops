@@ -17,11 +17,12 @@
 	<label class="col-sm-4 control-label" for="link">Blog category Url : </label>
 	<div class="col-sm-5">
 	    <input type="text" value="" placeholder="Enter Blog category Url" id="link" class="form-control" name="link">
+	    <input type="hidden" value="" id="id" name="id">
 	</div>
     </div>
     <div class="form-group">
 	<div class="col-sm-offset-4 col-sm-5">
-	    <button class="btn btn-success btn-block" name="add" type="submit">Submit</button>
+	    <button class="btn btn-success btn-block" name="add" id="add" type="button">Add New Blog Category</button>
 	</div>
     </div>
 </form>

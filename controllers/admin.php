@@ -12,7 +12,8 @@ class Admin extends Controller {
             'http://fonts.googleapis.com/css?family=Roboto+Slab:400,700',
             'public/bootstrap-3.2.0/css/bootstrap.css',
             'public/font-awesome/css/font-awesome.min.css',
-            'public/css/main.css'
+            'public/css/main.css',
+	    'public/css/admin.css',
         );
         $this->view->js = array(
             'public/js/custom.js',

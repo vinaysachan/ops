@@ -18,18 +18,27 @@ $(function () {
         $('.edit').click(function () {
             var editItem = $(this);
             var id = $(this).attr('rel');
-            $('#frmHead').text('Update Blog Category');
-            var id = $(this).attr('rel');
             $.get('/admin_ajax/xhrGetblogCatList', {'id': id}, function (o) {
+                $('#frmHead').text('Update Blog Category : ' + o[0].name);
+                $('#name').val(o[0].name);
+                $('#link').val(o[0].link);
+                $('#id').val(o[0].id);
+                $('#add').text('Update this Blog Caegory');
             }, 'json');
-
         });
         $('#addBtn').click(function () {
-//            $('#frmHead').text('Add New Blog Category');
-            
-            
-            
-
+            $('#name,#link,#id').val('');
+            $('#frmHead').text('Add New Blog Category');
+            $('#add').text('Add New Blog Caegory');
+        });
+        $('#add').click(function () {
+            var name = $('#name').val();
+            var link = $('#link').val();
+            var id = $('#id').val();
+            $.post('/admin_ajax/xhrAddblogCat', {'name': name, 'link': link, 'id': id}, function (o) {
+                 
+            }, 'json');
+            return false;
         });
 
     }, 'json');

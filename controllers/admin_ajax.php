@@ -3,21 +3,26 @@
 class Admin_ajax extends Controller {
 
     function xhrGetblogCatListings() {
-        $this->model->xhrGetblogCatListings();
-        exit();
+	$this->model->xhrGetblogCatListings();
+	exit();
     }
 
     function xhrDelblogCatListing() {
-        if ($this->model->xhrDelblogCatListing()) {
-            echo json_encode('Del');
-        } else {
-            echo json_encode('NoDel');
-        }
+	if ($this->model->xhrDelblogCatListing()) {
+	    echo json_encode('Del');
+	} else {
+	    echo json_encode('NoDel');
+	}
     }
-    
-    function xhrGetblogCatList(){
+
+    function xhrGetblogCatList() {
 	$this->model->xhrGetblogCatList();
-        exit();
+	exit();
+    }
+
+    function xhrAddblogCat() {
+	$this->model->xhrAddblogCat();
+	exit();
     }
 
 }

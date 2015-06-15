@@ -27,7 +27,7 @@
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
                     <button class="navbar-toggle-btn pull-left" data-toggle="offcanvas" type="button">Left Menu <i class="fa fa-indent"></i>
                     </button>
@@ -74,7 +74,7 @@
 
                 </div>         
                 <div class="col-sm-9 col-md-9">
-                    <div class="box"> 
+                    <div class="box box_admin"> 
                         <h1><?= (empty($this->heading) ? 'Page Header' : $this->heading) ?></h1>
                         <div class="content">
                             <?php if (isset($_REQUEST['succ-msg'])) { ?> 
