@@ -21,10 +21,34 @@ class Admin_ajax extends Controller {
     }
 
     function xhrAddblogCat() {
-	$this->model->xhrAddblogCat();
+	$msg = $this->model->xhrAddblogCat();
+	echo json_encode($msg);
 	exit();
     }
-
+    
+    function xhrGetQuestionCatListings() {
+	$this->model->xhrGetQuestionCatListings();
+	exit();
+    }
+    
+    function xhrDelQuestionCatListing() {
+	if ($this->model->xhrDelQuestionCatListing()) {
+	    echo json_encode('Del');
+	} else {
+	    echo json_encode('NoDel');
+	}
+    }
+    
+    function xhrGetQuestionCatList() {
+	$this->model->xhrGetQuestionCatList();
+	exit();
+    }
+    
+    function xhrAddQuestionCat() {
+	$msg = $this->model->xhrAddQuestionCat();
+	echo json_encode($msg);
+	exit();
+    }
 }
 
 //

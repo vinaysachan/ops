@@ -17,6 +17,11 @@
             {title: 'Test template 2', content: 'Test 2'}
         ]
     });
+    $(function () {
+        $('.select2').select2({
+            theme: "classic"
+        });
+    });
 </script>
 <?php
 if (!empty($this->contentdata)) {
@@ -27,22 +32,21 @@ if (!empty($this->contentdata)) {
     <div class="form-group">
         <label for="ppage" class="col-sm-2 control-label">Parent Page</label>
         <div class="col-sm-5">
-            <?php
-            echo '<select id="ppage" name="ppage" class="form-control select2" data-validation="required" data-validation-error-msg="Choose Any parent Page">';
-            echo '<option value="">Select Any Parent Page</option>';
-            foreach ($this->pageLists as $pageList) {
-                $selected = (!empty($contentData['parent_id']) && $contentData['parent_id'] == $pageList['id']) ? 'selected' : '';
-                echo '<option ' . $selected . '  value="' . $pageList['id'] . '">' . $pageList['name'] . '</option>';
-            } echo '</select>';
-            ?> 
+	    <?php
+	    echo '<select id="ppage" name="ppage" class="form-control select2">';
+	    echo '<option value="">Select Any Parent Page</option>';
+	    foreach ($this->pageLists as $pageList) {
+		$selected = (!empty($contentData['parent_id']) && $contentData['parent_id'] == $pageList['id']) ? 'selected' : '';
+		echo '<option ' . $selected . '  value="' . $pageList['id'] . '">' . $pageList['name'] . '</option>';
+	    } echo '</select>';
+	    ?> 
         </div>
     </div>
     <div class="form-group">
         <label for="page_heading" class="col-sm-2 control-label">Page Heading</label>
         <div class="col-sm-5">
             <input name="page_heading" type="text" class="form-control" id="page_heading"
-                   placeholder="Page Heading" data-validation="required"
-                   data-validation-error-msg="Please enter the page heading." value="<?= (!empty($contentData['page_heading'])) ? $contentData['page_heading'] : '' ?>">
+                   placeholder="Page Heading" value="<?= (!empty($contentData['page_heading'])) ? $contentData['page_heading'] : '' ?>">
         </div>
     </div>
     <div class="form-group">
@@ -57,8 +61,7 @@ if (!empty($this->contentdata)) {
         <label for="pcontent" class="col-sm-2 control-label">Page Content</label>
         <div class="col-sm-offset-2 col-sm-10 mt5">
             <textarea name="content" type="text" class="tinymce form-control" id="pcontent"
-                      placeholder="Page Content" data-validation="required"
-                      data-validation-error-msg="<span class='col-sm-offset-3 col-sm-5'>Please enter the Content of page</span>"><?= (!empty($contentData['content'])) ? $contentData['content'] : '' ?></textarea>
+                      placeholder="Page Content" ><?= (!empty($contentData['content'])) ? $contentData['content'] : '' ?></textarea>
         </div>
     </div>
     <div class="form-group">
@@ -78,17 +81,4 @@ if (!empty($this->contentdata)) {
             <button type="submit" name="<?= (!empty($this->contentdata)) ? 'update' : 'add' ?>" class="btn btn-success btn-block"><?= (!empty($this->contentdata)) ? 'Update' : 'Submit' ?></button>
         </div>
     </div> 
-</form>
-<script type="text/javascript">
-    $.validate({
-        borderColorOnError: '#FFF',
-        addValidClassOnAll: true,
-        modules: 'location, date, security, file',
-        onModulesLoaded: function () {
-
-        }
-    });
-    $('.select2').select2({
-        theme: "classic"
-    });
-</script>
+</form> 

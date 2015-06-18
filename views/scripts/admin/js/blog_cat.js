@@ -10,7 +10,7 @@ $(function () {
                 if (o == 'Del') {
                     delItem.parent().remove();
                 } else {
-                    alert('Due to Error! blog can not be deleted');
+                    alert('Due to Error! blog Category can not be deleted');
                 }
             }, 'json');
             return false;
@@ -36,7 +36,13 @@ $(function () {
             var link = $('#link').val();
             var id = $('#id').val();
             $.post('/admin_ajax/xhrAddblogCat', {'name': name, 'link': link, 'id': id}, function (o) {
-                 
+                if (o == 'added') {
+                    var msg = 'Blog category added Successfully';
+                } else {
+                    var msg = 'Blog category Updated Successfully';
+                }
+                window.location = "/admin/blog_cat?succ-msg=" + encodeURI(msg);
+                exit();
             }, 'json');
             return false;
         });
