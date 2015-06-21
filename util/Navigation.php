@@ -144,7 +144,7 @@ class Navigation {
 		'link' => 'admin'
 	    ),
 	    array(
-		'label' => 'Alexa',
+		'label' => 'Alexa Ranking',
 		'link' => 'javascript:void(0)',
 		'subMenu' => array(
 		    array(
@@ -166,6 +166,20 @@ class Navigation {
 			'link' => 'admin/content',
 		    ),
 		    array(
+			'label' => 'Interview Question Categories',
+			'link' => 'admin/interview_ques_cat',
+		    ),
+		    array(
+			'label' => 'Manage Interview Questions',
+			'link' => 'admin/interview_ques',
+		    )
+		)
+	    ),
+	    array(
+		'label' => 'Manage Site\'s Blog',
+		'link' => 'javascript:void(0)',
+		'subMenu' => array(
+		    array(
 			'label' => 'Manage Blag Category',
 			'link' => 'admin/blog_cat',
 		    ),
@@ -173,10 +187,6 @@ class Navigation {
 			'label' => 'Manage Blag Content',
 			'link' => 'admin/blog_manage',
 		    ),
-		    array(
-			'label' => 'Interview Question Categories',
-			'link' => 'admin/interview_ques_cat',
-		    )
 		)
 	    )
 	);

@@ -83,4 +83,61 @@ class Admin_model extends Model {
 	return $this->db->select($sql, $whereCon);
     }
 
+    public function getQuesCatLists() {
+	$whereCon = [];
+	$sql = 'SELECT id, name FROM question_category ORDER BY name ASC';
+	return $this->db->select($sql, $whereCon);
+    }
+
+    public function getQuestionData($id) {
+	$whereCon = [ 'id' => $id];
+	$sql = 'SELECT * FROM questions WHERE id = :id';
+	return $this->db->select($sql, $whereCon);
+    }
+
+    public function questionInsert($data) {
+	$this->db->insert('questions', $data);
+	return $this->db->getlastInsertId();
+    }
+
+    public function questionUpdate($data, $id) {
+	$this->db->update('questions', $data, "`id` = {$id}");
+    }
+
+    public function getQuestionsList() {
+	$whereCon = [];
+	$sql = 'SELECT q.id,q.question,q.level,q.active,c.name AS ques_cat FROM questions AS q LEFT JOIN question_category AS c ON c.id = q.question_category_id';
+	return $this->db->select($sql, $whereCon);
+    }
+
+    public function getQuesAnsData($id) {
+	$whereCon = [':id' => $id];
+	$sql = 'SELECT '
+		. 'q.id,q.question,q.level,q.active,'
+		. 'a.id AS answer_id,a.answer,a.active AS answer_active, c.name AS cat_name '
+		. 'FROM questions AS q LEFT JOIN questions_answer AS a ON q.id=a.questions_id '
+		. 'LEFT JOIN question_category AS c ON c.id= q.question_category_id WHERE q.id = :id';
+	return $this->db->select($sql, $whereCon);
+    }
+
+    public function quesAnsInsert($data) {
+	$this->db->insert('questions_answer', $data);
+    }
+
+    public function quesAnsUpdate($data, $id) {
+	$this->db->update('questions_answer', $data, "`id` = {$id}");
+    }
+
+    public function getifscData($statement, $startpoint, $per_page) {
+	$whereCon = [];
+	$sql = "SELECT ifsc_code,bank_name FROM {$statement} LIMIT {$startpoint} , {$per_page}";
+	return $this->db->select($sql, $whereCon);
+    }
+
+    public function getTotalCount($statement) {
+	$whereCon = [];
+	$sql = "SELECT COUNT(*) as num FROM {$statement}";
+	return $this->db->select($sql,$whereCon); 
+    }
+
 }

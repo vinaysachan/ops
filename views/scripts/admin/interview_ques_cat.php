@@ -3,7 +3,7 @@
     <a class="btn btn-danger pull-right ml15" id="addBtn" href="#frmHead" role="button"><i class="fa fa-plus-square-o"></i>Add New Interview Question Category</a>
     <small><em>Here we can add and update the category</em></small> 
 </h2>
-<div id="listInserts"></div>
+<table id="listInserts" class="table table-bordered"></table>
 <hr/> 
 <h2 id="frmHead">Add New Interview Question Category</h2>
 <form id="iqCatFrm" class="form-horizontal">

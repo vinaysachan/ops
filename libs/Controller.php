@@ -5,9 +5,9 @@ class Controller {
     public $__layout = 'default';
 
     function __construct() {
-        //echo 'Main controller<br />';
-        $this->view = new View();
-        $this->view->layout = $this->__layout;
+	//echo 'Main controller<br />';
+	$this->view = new View();
+	$this->view->layout = $this->__layout;
     }
 
     /**
@@ -17,13 +17,25 @@ class Controller {
      */
     public function loadModel($name, $modelPath = 'models/') {
 
-        $path = $modelPath . $name . '_model.php';
+	$path = $modelPath . $name . '_model.php';
 
-        if (file_exists($path)) {
-            require $path;
-            $modelName = $name . '_Model';
-            $this->model = new $modelName();
-        }
+	if (file_exists($path)) {
+	    require $path;
+	    $modelName = $name . '_Model';
+	    $this->model = new $modelName();
+	}
+    }
+
+    public function loadLibrary($name, $librarypath = 'library/') {
+	$path = $librarypath . $name . '.php';
+	if (file_exists($path)) {
+	    require $path;
+	    $name = rtrim($name, '/');
+	    $name = filter_var($name, FILTER_SANITIZE_URL);
+	    $nameArr = explode('/', $name);
+	    $libraryName = end($nameArr);
+	    $this->library = new $libraryName();
+	}
     }
 
 }

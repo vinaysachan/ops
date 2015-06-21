@@ -3,7 +3,7 @@
     <a class="btn btn-danger pull-right ml15" id="addBtn" href="#" role="button"><i class="fa fa-plus-square-o"></i>Add New Blog Category</a>
     <small><em>Here we can add and update the category</em></small> 
 </h2>
-<div id="listInserts"></div>
+<table id="listInserts" class="table table-bordered"></table>
 <hr/> 
 <h2 id="frmHead">Add New Blog Category</h2>
 <form id="blogCatFrm" class="form-horizontal">

@@ -46,6 +46,22 @@ class Admin extends Controller {
 
     public function alexaadd($param = NULL) {
 	$this->view->active = 'admin/alexaadd';
+
+	//====> Load Pagination Library
+	$this->loadLibrary('pagination');
+	$page = (int) (!isset($_GET["page"]) ? 1 : $_GET["page"]);
+	if ($page <= 0)
+	    $page = 1;
+	$per_page = 10; // Set how many records do you want to display per page.
+	$startpoint = ($page * $per_page) - $per_page;
+	$statement = "`ifsc_code` ORDER BY `ifsc_code` ASC";
+	//====> retun total number
+	$totalv = $this->model->getTotalCount($statement);
+	$total = $totalv[0]['num'];
+	$this->view->ifscLists = $this->model->getifscData($statement, $startpoint, $per_page);
+
+	$this->view->pagination = $this->library->pagging($total, $per_page, $page, $url = '?');
+
 	$this->view->render('scripts/admin/alexaadd');
     }
 
@@ -221,6 +237,108 @@ class Admin extends Controller {
 	// ==> Add Js file for validation and Ajax 
 	$this->view->js[] = 'views/scripts/admin/js/in_ques_cat.js';
 	$this->view->render('scripts/admin/interview_ques_cat');
+    }
+
+    public function interview_ques() {
+	$this->view->active = 'admin/interview_ques';
+	$this->view->heading = $this->view->title = 'Manager Interview Questions And their answers';
+	// ==> Add some more js files
+	$this->view->js[] = 'public/dataTables/js/jquery.dataTables.min.js';
+	$this->view->js[] = 'public/dataTables/Responsive/js/dataTables.responsive.min.js';
+	// ==> Add some more css files
+	$this->view->css[] = 'public/dataTables/css/jquery.dataTables.css';
+	$this->view->css[] = 'public/dataTables/Responsive/css/dataTables.responsive.css';
+	// ==> Get All Questions
+	$this->view->questionsList = $this->model->getQuestionsList();
+	$this->view->render('scripts/admin/interview_ques');
+    }
+
+    public function interview_ques_ae($id = NULL) {
+	$this->view->active = 'admin/interview_ques';
+	$title = ($id == NULL) ? 'Add New Interview Questions' : 'Update Interview Questions';
+	$this->view->heading = $this->view->title = $title;
+	// ==> Add some more js files
+	$this->view->js[] = 'public/tinymce/tinymce.min.js';
+	$this->view->js[] = 'public/select2/js/select2.full.min.js';
+	// ==> Add some more css files
+	$this->view->css[] = 'public/select2/css/select2.min.css';
+	// ==> Get Question category list
+	$this->view->quesCatLists = $this->model->getQuesCatLists();
+	if ($id == NULL) {
+	    $this->view->subheading = 'Add new Interview Questions<small><em>Here we can add the Interview Questions with thier category and difficulty level.</em></small>';
+	    if (isset($_POST['add'])) {
+		$data = [
+		    'question_category_id' => $_POST['question_category_id'],
+		    'question' => $_POST['question'],
+		    'level' => $_POST['level'],
+		    'active' => $_POST['active'],
+		    'date_created' => date("Y-m-d H:i:s")
+		];
+		$id = $this->model->questionInsert($data);
+		$msg = urlencode('Interview Questions added Successfully');
+		header('location: ' . URL . 'admin/interview_ques_ae/' . $id . '?succ-msg=' . $msg);
+	    }
+	} else {
+	    $this->view->subheading = 'Update Interview Questions<small><em>Here we can update the Interview Questions and their answer</em></small>';
+	    $quesData = $this->model->getQuestionData($id);
+	    if (empty($quesData)) {
+		$msg = urlencode('Unable to update Interview Questions');
+		header('location: ' . URL . 'admin/interview_ques?succ-err=' . $msg);
+	    } else {
+		$this->view->quesData = $quesData;
+		if (isset($_POST['update'])) {
+		    $data = [
+			'question_category_id' => $_POST['question_category_id'],
+			'question' => $_POST['question'],
+			'level' => $_POST['level'],
+			'active' => $_POST['active'],
+		    ];
+		    $this->model->questionUpdate($data, $id);
+		    $msg = urlencode('Interview Questions Updated Successfully');
+		    header('location: ' . URL . 'admin/interview_ques_ae/' . $id . '?succ-msg=' . $msg);
+		}
+	    }
+	}
+	$this->view->render('scripts/admin/interview_ques_ae');
+    }
+
+    public function interview_ques_ans($id) {
+	if (empty($id)) {
+	    $msg = urlencode('Unable to View Interview Questions\'s Answer');
+	    header('location: ' . URL . 'admin/interview_ques?succ-err=' . $msg);
+	}
+	$this->view->active = 'admin/interview_ques';
+	$this->view->heading = $this->view->title = 'Manage Interview Questions\'s Answer';
+	// ==> Add some more js files
+	$this->view->js[] = 'public/tinymce/tinymce.min.js';
+	//get
+	$this->view->quesAnsData = $this->model->getQuesAnsData($id);
+	if (isset($_POST['add'])) {
+	    $data = [
+		'answer' => $_POST['answer'],
+		'questions_id' => $_POST['questions_id'],
+		'active' => $_POST['active'],
+		'date_created' => date("Y-m-d H:i:s")
+	    ];
+	    $this->model->quesAnsInsert($data);
+	    $msg = urlencode('Interview Questions\'s Answer added Successfully');
+	    header('location: ' . URL . 'admin/interview_ques_ae/' . $id . '?succ-msg=' . $msg);
+	} else if (isset($_POST['update'])) {
+	    $data = [
+		'answer' => $_POST['answer'],
+		'questions_id' => $_POST['questions_id'],
+		'active' => $_POST['active']
+	    ];
+	    $this->model->quesAnsUpdate($data, $_POST['answer_id']);
+	    $msg = urlencode('Interview Questions\'s Answer Updated Successfully');
+	    header('location: ' . URL . 'admin/interview_ques_ae/' . $id . '?succ-msg=' . $msg);
+	}
+
+
+
+
+
+	$this->view->render('scripts/admin/interview_ques_ans');
     }
 
 //        public function alexaaddaa($param = NULL) {

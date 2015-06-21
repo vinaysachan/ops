@@ -83,16 +83,25 @@
                 </div>
                 <div class="col-sm-3 col-md-3 pl0  ">
                     <div class="right-box"> 
-                        <h4>Interview Question Categories</h4>
+                        <h4><?= (empty($this->heading41)) ? '******************Enter Here Category Name****************' : $this->heading41 ?></h4>
                         <div class="right-box-content">
                             <ul class="blog-categories">
-                                <li class="active"><a href="#">PHP Interview (116)</a></li>
-                                <li><a href="#">HTML, CSS Interview(7)</a></li>
-                                <li><a href="#">JS, AngularJS, JQuery Interview(7)</a></li>
-                                <li><a href="#">HR Interview(7)</a></li>
-                                <li><a href="#">DBMS, MySQL Interview(4)</a></li>
-                                <li><a href="#">MangoDB, NoSQL Interview(23)</a></li>
-                                <li><a href="#">Quantitative & Reasoning (5)</a></li>
+				<!--				
+				<li class="active"><a href="#">PHP Interview (116)</a></li>
+				<li><a href="#">HTML, CSS Interview(7)</a></li>
+				<li><a href="#">JS, AngularJS, JQuery Interview(7)</a></li>
+				<li><a href="#">HR Interview(7)</a></li>
+				<li><a href="#">DBMS, MySQL Interview(4)</a></li>
+				<li><a href="#">MangoDB, NoSQL Interview(23)</a></li>
+				<li><a href="#">Quantitative & Reasoning (5)</a></li>
+				-->
+				<li <?= (empty($this->catlink)) ? 'class="active"' : '' ?> ><a href="<?= URL ?>jobs/interview_question_answer">View All Interview Questions</a></li>
+				<?php
+				foreach ($this->catList as $catList) {
+				    $status = ($this->catlink == $catList['link']) ? 'class="active"' : '';
+				    echo '<li ' . $status . '><a href="' . $this->catURL . $catList['link'] . '">' . $catList['name'] . ' (' . $catList['ques_count'] . ')</a></li>';
+				}
+				?>
                             </ul>
                         </div> 
                     </div>

@@ -1,14 +1,16 @@
 $(function () {
     $.get('/admin_ajax/xhrGetblogCatListings', function (o) {
         for (var i = 0; i < o.length; i++) {
-            $('#listInserts').append('<div>' + o[i].name + '<a class="del" rel="' + o[i].id + '" href="#">Delete</a><a class="edit" rel="' + o[i].id + '" href="#">Edit</a></div>');
+            $('#listInserts').append('<tr><td>' + o[i].name + '</td><td><a class="del" rel="' + o[i].id + '" href="#">Delete</a></td><td><a class="edit" rel="' + o[i].id + '" href="#frmHead">Edit</a></td></tr>');
         }
         $('.del').click(function () {
             var delItem = $(this);
             var id = $(this).attr('rel');
             $.post('/admin_ajax/xhrDelblogCatListing', {'id': id}, function (o) {
                 if (o == 'Del') {
-                    delItem.parent().remove();
+                    delItem.closest('tr').remove();
+                } else if (o == 'blogExist') {
+                    alert('There are some blogs under this category So! blog Category can not be deleted');
                 } else {
                     alert('Due to Error! blog Category can not be deleted');
                 }

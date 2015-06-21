@@ -8,11 +8,7 @@ class Admin_ajax extends Controller {
     }
 
     function xhrDelblogCatListing() {
-	if ($this->model->xhrDelblogCatListing()) {
-	    echo json_encode('Del');
-	} else {
-	    echo json_encode('NoDel');
-	}
+	echo json_encode($this->model->xhrDelblogCatListing());
     }
 
     function xhrGetblogCatList() {
@@ -25,30 +21,27 @@ class Admin_ajax extends Controller {
 	echo json_encode($msg);
 	exit();
     }
-    
+
     function xhrGetQuestionCatListings() {
 	$this->model->xhrGetQuestionCatListings();
 	exit();
     }
-    
+
     function xhrDelQuestionCatListing() {
-	if ($this->model->xhrDelQuestionCatListing()) {
-	    echo json_encode('Del');
-	} else {
-	    echo json_encode('NoDel');
-	}
+	echo json_encode($this->model->xhrDelQuestionCatListing());
     }
-    
+
     function xhrGetQuestionCatList() {
 	$this->model->xhrGetQuestionCatList();
 	exit();
     }
-    
+
     function xhrAddQuestionCat() {
 	$msg = $this->model->xhrAddQuestionCat();
 	echo json_encode($msg);
 	exit();
     }
+
 }
 
 //

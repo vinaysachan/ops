@@ -20,17 +20,23 @@ class Admin_ajax_model extends Model {
 
     public function xhrDelblogCatListing() {
 	$id = (int) $_POST['id'];
-	if ($this->db->delete('blog_category', "id = '$id'", 1)) {
-	    return TRUE;
+	$whereCon = ['id' => $id];
+	$sql = 'select count(id) as num from blog WHERE blog_cat = :id';
+	$count = $this->db->select($sql, $whereCon);
+	if ($count[0]['num'] == 0) {
+	    $this->db->delete('blog_category', "id = '$id'", 1);
+	    return 'Del';
+	} else if ($count[0]['num'] > 0) {
+	    return 'blogExist';
 	}
-	return FALSE;
+	return 'NoDel';
     }
 
     public function xhrAddblogCat() {
 	$id = (int) $_POST['id'];
 	$name = $_POST['name'];
 	$link = $_POST['link'];
-	$data = array('name' => $name, 'link' => $link);
+	$data = array('name' => $name, 'link' => $link, 'date_created' => date("Y-m-d H:i:s"));
 	if (empty($id)) {
 	    $this->db->insert('blog_category', $data);
 	    return 'added';
@@ -40,32 +46,38 @@ class Admin_ajax_model extends Model {
 	}
 	return FALSE;
     }
-    
+
     public function xhrGetQuestionCatListings() {
 	$whereCon = [];
 	$sql = 'SELECT id,name,link FROM question_category ORDER BY name ASC';
 	echo json_encode($this->db->select($sql, $whereCon));
     }
-    
+
     public function xhrDelQuestionCatListing() {
 	$id = (int) $_POST['id'];
-	if ($this->db->delete('question_category', "id = '$id'", 1)) {
-	    return TRUE;
+	$whereCon = ['id' => $id];
+	$sql = 'select count(id) as num from questions WHERE question_category_id = :id';
+	$count = $this->db->select($sql, $whereCon);
+	if ($count[0]['num'] == 0) {
+	    $this->db->delete('question_category', "id = '$id'", 1);
+	    return 'Del';
+	} else if ($count[0]['num'] > 0) {
+	    return 'quesExist';
 	}
-	return FALSE;
+	return 'NoDel';
     }
-    
+
     public function xhrGetQuestionCatList() {
 	$whereCon = ['id' => (int) $_REQUEST['id']];
 	$sql = 'SELECT id,name,link FROM question_category WHERE id = :id LIMIT 1';
 	echo json_encode($this->db->select($sql, $whereCon));
     }
-    
+
     public function xhrAddQuestionCat() {
 	$id = (int) $_POST['id'];
 	$name = $_POST['name'];
 	$link = $_POST['link'];
-	$data = array('name' => $name, 'link' => $link);
+	$data = array('name' => $name, 'link' => $link, 'date_created' => date("Y-m-d H:i:s"));
 	if (empty($id)) {
 	    $this->db->insert('question_category', $data);
 	    return 'added';
@@ -75,5 +87,5 @@ class Admin_ajax_model extends Model {
 	}
 	return FALSE;
     }
-    
+
 }

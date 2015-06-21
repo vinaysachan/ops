@@ -1,14 +1,16 @@
 $(function () {
     $.get('/admin_ajax/xhrGetQuestionCatListings', function (o) {
         for (var i = 0; i < o.length; i++) {
-            $('#listInserts').append('<div>' + o[i].name + '<a class="del" rel="' + o[i].id + '" href="#">Delete</a><a class="edit" rel="' + o[i].id + '" href="#frmHead">Edit</a></div>');
+            $('#listInserts').append('<tr><td>' + o[i].name + '</td><td><a class="del" rel="' + o[i].id + '" href="#">Delete</a></td><td><a class="edit" rel="' + o[i].id + '" href="#frmHead">Edit</a></td></tr>');
         }
         $('.del').click(function () {
             var delItem = $(this);
             var id = $(this).attr('rel');
             $.post('/admin_ajax/xhrDelQuestionCatListing', {'id': id}, function (o) {
                 if (o == 'Del') {
-                    delItem.parent().remove();
+                    delItem.closest('tr').remove();
+                } else if (o == 'quesExist') {
+                    alert('There are some Questions under this category So! Interview Question category can not be deleted');
                 } else {
                     alert('Due to Error! Interview Question category can not be deleted');
                 }
