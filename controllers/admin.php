@@ -16,7 +16,6 @@ class Admin extends Controller {
 	    'public/css/admin.css',
 	);
 	$this->view->js = array(
-	    'public/js/custom.js',
 	    'public/js/jquery-2.1.1.min.js',
 	    'public/js/jquery-ui.min.js',
 	    'public/bootstrap-3.2.0/js/bootstrap.min.js',
@@ -180,9 +179,11 @@ class Admin extends Controller {
 		    'name' => $_POST['name'],
 		    'url' => $_POST['url'],
 		    'images' => $file_name,
+		    'blog_intro' => $_POST['blog_intro'],
 		    'content' => $_POST['content'],
 		    'writer' => $_POST['writer'],
 		    'active' => $_POST['status'],
+		    'is_popular' => $_POST['is_popular'],
 		    'date_created' => date("Y-m-d H:i:s")
 		];
 		$this->model->blogInsert($data);
@@ -202,9 +203,11 @@ class Admin extends Controller {
 			'blog_cat' => $_POST['blog_cat'],
 			'name' => $_POST['name'],
 			'url' => $_POST['url'],
+			'blog_intro' => $_POST['blog_intro'],
 			'content' => $_POST['content'],
 			'writer' => $_POST['writer'],
-			'active' => $_POST['status']
+			'active' => $_POST['status'],
+			'is_popular' => $_POST['is_popular']
 		    ];
 		    if ($_FILES["blog_img"]['name'] != '') {
 			$file_name = basename($_POST['url'] . '_' . $_FILES["blog_img"]["name"]);
@@ -333,16 +336,11 @@ class Admin extends Controller {
 	    $msg = urlencode('Interview Questions\'s Answer Updated Successfully');
 	    header('location: ' . URL . 'admin/interview_ques_ae/' . $id . '?succ-msg=' . $msg);
 	}
-
-
-
-
-
 	$this->view->render('scripts/admin/interview_ques_ans');
     }
 
-//        public function alexaaddaa($param = NULL) {
-//        $this->view->active = 'admin/alexaaddaa';
-//        $this->view->render('scripts/admin/alexaaddaa');
+//    public function alexaaddaa($param = NULL) {
+//	$this->view->active = 'admin/alexaaddaa';
+//	$this->view->render('scripts/admin/alexaaddaa');
 //    }
 }

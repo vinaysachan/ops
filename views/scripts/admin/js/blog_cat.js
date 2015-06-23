@@ -31,7 +31,7 @@ $(function () {
         $('#addBtn').click(function () {
             $('#name,#link,#id').val('');
             $('#frmHead').text('Add New Blog Category');
-            $('#add').text('Add New Blog Caegory');
+            $('#add').text('Add New Blog Category');
         });
         $('#add').click(function () {
             var name = $('#name').val();

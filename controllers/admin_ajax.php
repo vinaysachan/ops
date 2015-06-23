@@ -37,8 +37,7 @@ class Admin_ajax extends Controller {
     }
 
     function xhrAddQuestionCat() {
-	$msg = $this->model->xhrAddQuestionCat();
-	echo json_encode($msg);
+	echo json_encode($this->model->xhrAddQuestionCat()); 
 	exit();
     }
 

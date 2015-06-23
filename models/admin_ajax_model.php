@@ -36,8 +36,9 @@ class Admin_ajax_model extends Model {
 	$id = (int) $_POST['id'];
 	$name = $_POST['name'];
 	$link = $_POST['link'];
-	$data = array('name' => $name, 'link' => $link, 'date_created' => date("Y-m-d H:i:s"));
+	$data = array('name' => $name, 'link' => $link);
 	if (empty($id)) {
+	    $data['date_created'] = date("Y-m-d H:i:s");
 	    $this->db->insert('blog_category', $data);
 	    return 'added';
 	} else {
@@ -77,8 +78,9 @@ class Admin_ajax_model extends Model {
 	$id = (int) $_POST['id'];
 	$name = $_POST['name'];
 	$link = $_POST['link'];
-	$data = array('name' => $name, 'link' => $link, 'date_created' => date("Y-m-d H:i:s"));
+	$data = array('name' => $name, 'link' => $link);
 	if (empty($id)) {
+	    $data['date_created'] = date("Y-m-d H:i:s");
 	    $this->db->insert('question_category', $data);
 	    return 'added';
 	} else {

@@ -140,12 +140,12 @@ ul.blog-categories li a:hover {
 }
 
 .bsignup {
-    margin: 10px 0px;
+    margin: 4px 0px;
 }
 .bsignup p {
-    color: #4cae4c;
-    font-size: 80%;
-    padding-bottom: 3px;
+    /*color: #4cae4c;*/
+    font-size: 90%;
+    padding: 5px 0 5px 1px;
 }
 .bsignup input:focus, .bsignup input {
     -moz-border-bottom-colors: none;
@@ -250,6 +250,40 @@ ul.blog-popular-post li a:hover {
     padding-top: 15px;
     position: relative;
 }
+
+.blog-page h1{
+    background-color: #f8f8f8;
+    color: #000000;
+    border-image: none;
+    font-family: "Roboto Slab",Helvetica,Arial,sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 30px;
+    margin: 0;
+    padding: 25px 15px;
+    text-transform: uppercase;
+}
+
+.blog-page h1 > small{
+    color: #0000cc;
+    font-family: "Roboto Slab",Helvetica,Arial,sans-serif;
+    font-size: 18px; 
+    margin: 10px 0 20px;
+    padding: 10px 0;
+    text-align: center;
+}
+.blog-page h1 > small:before{
+    content: ' { ' ;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.blog-page h1 > small:after{
+    content: ' }' ;
+    padding-left: 10px;
+}
+
 .blog-list-wrapper .blog-list-line {
     background-color: #4285f4;
     height: 100%;
@@ -319,11 +353,11 @@ article .blog-comments:before{
 }
 article .blog-date{ left: 50px; }
 article .blog-date:before{ content: "\f017"; }
-article .blog-auth{ left: 250px; }
+article .blog-auth{ left: 30%; }
 article .blog-auth:before{ content: "\f007";}
-article .blog-cat{ left: 450px; }
+article .blog-cat{ right: 25%; }
 article .blog-cat:before{ content: "\f02d";}
-article .blog-comments{ left: 600px; }
+article .blog-comments{ right:5px; }
 article .blog-comments:before{ content: "\f086";}
 
 
@@ -336,7 +370,17 @@ article .blog-comments:before{ content: "\f086";}
     float: left;
     clear:left;
     width:300px;
-    margin: 0 15px 15px 0;
+    border: solid 5px #e9e9e9;
+    margin: 0 15px 10px 0;
+    border-radius: 5px;
+}
+.blog-img{
+    text-align: center;
+}
+.blog-img img {
+    border: 5px solid #e9e9e9;
+    border-radius: 5px;
+    display: initial;
 }
 
 .blog-container h2 { 

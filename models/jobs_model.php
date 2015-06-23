@@ -38,7 +38,6 @@ class Jobs_model extends Model {
 		. 'INNER JOIN question_category AS c ON c.id = q.question_category_id '
 		. 'WHERE q.active = :active AND a.active = :active '
 		. $catCondition;
-//		. "LIMIT {$startpoint} , {$per_page}";
     }
 
     public function getQuesLists($statement, $catLink = NULL ,$startpoint, $per_page) {
@@ -62,7 +61,12 @@ class Jobs_model extends Model {
 	$totalRec = $this->db->select($sql, $whereCon);
 	return $totalRec[0]['num'];
     }
-
+    
+    public function getPopularBlogs() {
+	$whereCon = [ ':active' => FLAG_Y];
+	$sql = ' SELECT b.id,b.name,b.url FROM blog AS b WHERE b.active = :active AND b.is_popular = :active ORDER BY DATE(b.date_created) DESC LIMIT 10';
+	return $this->db->select($sql, $whereCon);
+    }
 }
 
 ?>

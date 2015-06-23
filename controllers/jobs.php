@@ -15,7 +15,6 @@ class Jobs extends Controller {
 	    'public/css/blog.css'
 	);
 	$this->view->js = array(
-	    'public/js/custom.js',
 	    'public/js/jquery-2.1.1.min.js',
 	    'public/js/jquery-ui.min.js',
 	    'public/bootstrap-3.2.0/js/bootstrap.min.js',
@@ -37,7 +36,10 @@ class Jobs extends Controller {
 	    ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'],
 	    ['name' => 'robots', 'content' => 'index,follow'],
 	];
-
+	
+	//====> get Most Popular Posts
+	$this->view->popularBlogs = $this->model->getPopularBlogs();
+	
 	//====> Question categories :-
 	$this->view->heading41 = 'Interview Question Categories';
 	$this->view->catList = $this->model->getQuesCatLists();

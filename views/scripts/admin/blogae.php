@@ -68,6 +68,12 @@ if (!empty($this->blogData)) {
         </div>
     </div>
     <div class="form-group">
+        <label for="blog_intro" class="col-sm-2 control-label">Blog Introduction</label>
+        <div class="col-sm-offset-2 col-sm-10 mt5">
+            <textarea name="blog_intro" type="text" class="tinymce form-control" id="blog_intro" placeholder="blog Introduction"><?= (!empty($blogData['blog_intro'])) ? $blogData['blog_intro'] : '' ?></textarea>
+        </div>
+    </div>
+    <div class="form-group">
         <label for="content" class="col-sm-2 control-label">Blog Content</label>
         <div class="col-sm-offset-2 col-sm-10 mt5">
             <textarea name="content" type="text" class="tinymce form-control" id="content" placeholder="blog Content"><?= (!empty($blogData['content'])) ? $blogData['content'] : '' ?></textarea>
@@ -95,6 +101,19 @@ if (!empty($this->blogData)) {
                 <label class="btn btn-info <?= (!empty($blogData['active']) && ($blogData['active']) == FLAG_N) ? 'active' : '' ?>">
                     <input name="status" <?= (!empty($blogData['active']) && ($blogData['active']) == FLAG_N) ? 'checked' : '' ?> value="<?= FLAG_N ?>" type="radio"> Disable 
                 </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+	<label for="is_popular" class="col-sm-2 control-label">Make Popular</label>
+        <div class="col-sm-10">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-info <?= (!empty($blogData['is_popular']) && ($blogData['is_popular']) == FLAG_N) ? 'active' : '' ?>">
+                    <input name="is_popular" <?= (!empty($blogData['is_popular']) && ($blogData['is_popular']) == FLAG_N) ? 'checked' : '' ?> value="<?= FLAG_N ?>" type="radio"> Normal Blog
+                </label>
+		<label class="btn btn-info <?= (!empty($blogData['is_popular']) && ($blogData['is_popular']) == FLAG_Y) ? 'active' : '' ?>">
+                    <input name="is_popular" <?= (!empty($blogData['is_popular']) && ($blogData['is_popular']) == FLAG_Y) ? 'checked' : '' ?> value="<?= FLAG_Y ?>" type="radio"> Popular Blog
+                </label> 
             </div>
         </div>
     </div>

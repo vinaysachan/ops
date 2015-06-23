@@ -46,109 +46,135 @@
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
-        <div class="container-fluid">
-            <div class="row row-offcanvas-left row-offcanvas">
-                <div class="col-sm-3 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                    <div class="logo">
-                        <img class="img-responsive" src="<?= URL ?>public/images/onlinephpstudy.png">
+	<div class="container-fluid">
+	    <div class="row">
+		<div class="col-sm-9 col-md-9">
+                    <div class="blogtop">
+                        <div class="container-fluid">
+                            <div class="blogo col-md-4 col-sm-4">
+                                <img class="img-responsive" src="<?= URL ?>public/images/onlinephpstudy.png">
+                            </div>
+                            <div class="col-md-8 col-sm-8">
+                                <ol class="breadcrumb_ops">
+				    <?php
+				    if (!empty($this->breadcrumb)) {
+					foreach ($this->breadcrumb as $bread) {
+					    if ($bread['link'] == '') {
+						echo '<li title="' . $bread['title'] . '" class="bc">' . $bread['name'] . '</li>';
+					    } else {
+						echo '<li class="bc"><a title="' . $bread['title'] . '" href="' . $bread['link'] . '">' . $bread['name'] . '</a></li>';
+					    }
+					}
+				    }
+				    ?>
+                                </ol>
+                                <div class="bsearch">
+				    <form action="http://www.google.com/search" method="get" target="blank" >
+					<div class="input-group">
+					    <input type="text" class="form-control" placeholder="Search for..." name="q" required="">
+					    <input type="hidden" value="onlinephpstudy.com" name="sitesearch"> 
+					    <span class="input-group-btn">
+						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Search Here</button>
+					    </span>
+					</div>
+				    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-		    <?php
-		    // ====> Left Menu with Active Link
-		    $active = (empty($this->active)) ? '' : $this->active;
-		    $this->menuCreator($this->allLeftLinks, $menuType = 'adminLeftMenu', $active);
-		    ?>
-                </div>         
-                <div class="col-sm-9 col-md-9">
-                    <div class="">
-                        <ol class="breadcrumb_ops">
-                            <li class="bc">
-                                <i class="fa fa-home"></i><a href="#">Home</a>
-                            </li>
-                            <li class="bc">
-                                <a href="#">Basic PHP</a>
-                            </li>
-                            <li class="bc">Introduction of PHP</li>
-                        </ol>
-                        <div class="col-sm-8 p0">
-                            <div class="box"> 
-                                <h1><?= (empty($this->heading) ? 'Page Header' : $this->heading) ?></h1>
-                                <div class="content">
+		    <div class="container-fluid mt25">
+			<div class="row row-offcanvas-left row-offcanvas">
+			    <div class="col-sm-4 col-md-4 sidebar-offcanvas" id="sidebar" role="navigation"> 
+				<?php
+				// ====> Left Menu with Active Link
+				$active = (empty($this->active)) ? '' : $this->active;
+				$this->menuCreator($this->allLeftLinks, $menuType = 'adminLeftMenu', $active);
+				?>
+			    </div>
+			    <div class="col-sm-8 col-md-8 box"> 
+				<h1><?= (empty($this->heading) ? 'Page Header' : $this->heading) ?></h1>
+				<div class="content">
 				    <?php
 				    require 'views/' . $__viewpage . '.php';
 				    ?>
-                                </div>
+				</div>
+				<nav>
+				    <ul class="pager">
+					<li class="previous"><a href="">Previous Page</a></li>
+					<li class="next"><a href="">Next page</a></li>
+				    </ul>
+				</nav>
+			    </div>
+			</div>
+		    </div>  
+                </div>
+                <div class="col-sm-3 col-md-3 pl0  "> 
+		    <div class="right-box"> 
+                        <h4>Latest Posts</h4>
+                        <div class="right-box-content">
+                            <ul class="blog-popular-post">
+				<?php
+				if (!empty($this->latestBlogs)) {
+				    foreach ($this->latestBlogs as $lb) {
+					echo '<li>';
+					echo '<a href ="' . URL . 'blog/view/' . $lb['id'] . '/' . $lb['url'] . '">' . $lb['name'] . '</a>';
+					echo '</li>';
+				    }
+				}
+				?>
+                            </ul>
+                        </div> 
+                    </div>
+                    <div class="right-box"> 
+                        <h4>Sign-Up to Newsletter</h4>
+                        <div class="right-box-content">
+                            <div class="bsignup">
+                                <p class="text-success">Subscribe our newsletter to get updates via Email</p>
+				<form name="signupFrm" id="signupFrm" method="post">
+				    <div class="input-group">
+					<input type="text" id="signUpemail" name="signUpemail" placeholder="Your email address" class="form-control" required="" >
+					<span class="input-group-btn">
+					    <button type="submit" id="signUp" class="btn btn-success">Sign up!</button>
+					</span>
+				    </div>
+				</form>
+				<span id="msg"></span>
                             </div>
-                            <nav>
-                                <ul class="pager">
-                                    <li class="previous"><a href="">Previous Page</a></li>
-                                    <li class="next"><a href="">Next page</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="col-sm-4 pr0">
-                            <div class="box">
-                                <div class="content">
-                                    <h2>Latest Posts</h2>
-                                    <p>sdkhg sdshgfsdf dfgfdsf</p> 
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="content">
-                                    <h2>Latest Jobs</h2>
-                                    <p>sdkhg sdshgfsdf dfgfdsf</p> 
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="content">
-                                    <h2>Connect with US</h2>
-                                    <p>sdkhg sdshgfsdf dfgfdsf</p> 
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                    Vinay Sachan <br/>
-                                </div>
-                            </div>
-                        </div>
+                        </div> 
+                    </div>
+                    <div class="right-box"> 
+                        <h4>Most Popular Posts</h4>
+                        <div class="right-box-content">
+                            <ul class="blog-popular-post">
+				<?php
+				if (!empty($this->popularBlogs)) {
+				    foreach ($this->popularBlogs as $pb) {
+					echo '<li>';
+					echo '<a href ="' . URL . 'blog/view/' . $pb['id'] . '/' . $pb['url'] . '">' . $pb['name'] . '</a>';
+					echo '</li>';
+				    }
+				}
+				?>
+                            </ul>
+                        </div> 
+                    </div>
+                    <div class="right-box"> 
+                        <h4><a class="twitter-timeline" data-dnt="true" href="https://twitter.com/onlinephpstudy" data-widget-id="606553796878045185">Tweets by @onlinephpstudy</a></h4>
+                        <div class="right-box-content">
+                            <script>!function (d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                    if (!d.getElementById(id)) {
+                                        js = d.createElement(s);
+                                        js.id = id;
+                                        js.src = p + "://platform.twitter.com/widgets.js";
+                                        fjs.parentNode.insertBefore(js, fjs);
+                                    }
+                                }(document, "script", "twitter-wjs");</script>
+                        </div> 
                     </div>
                 </div>
-            </div><!--/.row--> 
-        </div><!--/.container-->
-        <!--
-        <div class="container-fluid">
-            <div class="row row-offcanvas-left row-offcanvas">
-                <div class="col-sm-3 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                    <div class="logo">
-                        <img class="img-responsive" src="<?= URL ?>public/images/onlinephpstudy.png">
-                    </div>
-	<?php
-	// ====> Left Menu with Active Link
-	$active = (empty($this->active)) ? '' : $this->active;
-	$this->menuCreator($this->allLeftLinks, $menuType = 'adminLeftMenu', $active);
-	?>
-                </div>
-                <div class="col-sm-9 col-md-9">
-                    <div class="box"> 
-                        <h1><?= (empty($this->heading) ? 'Page Header' : $this->heading) ?></h1>
-                        <div class="content">
-	<?php
-	require 'views/' . $__viewpage . '.php';
-	?>
-                        </div>
-                    </div> 
-                </div>
-            </div><!--/.row--> 
-        <!--</div><!--/.container-->  
+	    </div>
+	</div>
         <footer>
             <span class="text-left">
                 Copyright &copy; 2012 - 2014  All rights reserved. 

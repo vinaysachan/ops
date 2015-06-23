@@ -14,7 +14,6 @@ class Index extends Controller {
             'public/css/main.css'
         );
         $this->view->js = array(
-            'public/js/custom.js',
             'public/js/jquery-2.1.1.min.js',
             'public/js/jquery-ui.min.js',
             'public/bootstrap-3.2.0/js/bootstrap.min.js',

@@ -18,28 +18,28 @@ class Navigation {
 		    ),
 		)
 	    ),
-	    array(
-		'label' => 'HTML / JS / CSS',
-		'link' => 'html',
-	    ),
-	    array(
-		'label' => 'PHP Framework',
-		'link' => 'framework',
-		'subMenu' => array(
-		    array(
-			'label' => 'CodeIgniter',
-			'link' => 'framework/codeigniter',
-		    ),
-		    array(
-			'label' => 'Cake PHP',
-			'link' => 'framework/cake_php',
-		    ),
-		)
-	    ),
-	    array(
-		'label' => 'PHP CMS ',
-		'link' => 'cms',
-	    ),
+//	    array(
+//		'label' => 'HTML / JS / CSS',
+//		'link' => 'html',
+//	    ),
+//	    array(
+//		'label' => 'PHP Framework',
+//		'link' => 'framework',
+//		'subMenu' => array(
+//		    array(
+//			'label' => 'CodeIgniter',
+//			'link' => 'framework/codeigniter',
+//		    ),
+//		    array(
+//			'label' => 'Cake PHP',
+//			'link' => 'framework/cake_php',
+//		    ),
+//		)
+//	    ),
+//	    array(
+//		'label' => 'PHP CMS ',
+//		'link' => 'cms',
+//	    ),
 	    array(
 		'label' => 'Blogs',
 		'link' => 'blog',

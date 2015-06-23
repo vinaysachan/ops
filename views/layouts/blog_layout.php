@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <head> 
-        <?php
-        //====> Page Meta tags
-        if (!empty($this->metaTags)) {
-            echo Util::metatags($this->metaTags);
-        }
-        //====> Page title
-        echo '<title>' . (empty($this->title) ? SITENAME : $this->title) . '</title>';
-        ?>
+	<?php
+	//====> Page Meta tags
+	if (!empty($this->metaTags)) {
+	    echo Util::metatags($this->metaTags);
+	}
+	//====> Page title
+	echo '<title>' . (empty($this->title) ? SITENAME : $this->title) . '</title>';
+	?>
         <link rel="shortcut icon" href="<?= URL ?>public/images/onlinephpstudy.png"/>
-        <?php
-        //====> Page CSS
-        if (!empty($this->css)) {
-            echo Util::cssList($this->css);
-        }
-        //====> Page JS
-        if (!empty($this->js)) {
-            echo Util::jsList($this->js);
-        }
-        ?>
+	<?php
+	//====> Page CSS
+	if (!empty($this->css)) {
+	    echo Util::cssList($this->css);
+	}
+	//====> Page JS
+	if (!empty($this->js)) {
+	    echo Util::jsList($this->js);
+	}
+	?>
         <script> jQuery(document).ready(function () {
                 Main.init();
             });
@@ -37,12 +37,12 @@
                     </button>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <?php
-                    $allLinks = Navigation::MainHeaderMenu();
-                    /* Active Link */
-                    $active = (empty($this->hactive)) ? '' : $this->hactive;
-                    $this->menuCreator($allLinks, $menuType = 'frontPageMenu', $active);
-                    ?>
+		    <?php
+		    $allLinks = Navigation::MainHeaderMenu();
+		    /* Active Link */
+		    $active = (empty($this->hactive)) ? '' : $this->hactive;
+		    $this->menuCreator($allLinks, $menuType = 'frontPageMenu', $active);
+		    ?>
                 </div>
             </div>
         </nav>
@@ -57,42 +57,49 @@
                             </div>
                             <div class="col-md-8 col-sm-8">
                                 <ol class="breadcrumb_ops">
-                                    <li class="bc">
-                                        <i class="fa fa-home"></i><a href="#">Home</a>
-                                    </li>
-                                    <li class="bc">
-                                        <a href="#">Blogs</a>
-                                    </li>
-                                    <li class="bc">
-                                        <a href="#">Category - PHP</a>
-                                    </li>
-                                    <li class="bc">How to Search in MySQL using full-text indexing in PHP</li>
+				    <?php
+				    if (!empty($this->breadcrumb)) {
+					foreach ($this->breadcrumb as $bread) {
+					    if ($bread['link'] == '') {
+						echo '<li title="' . $bread['title'] . '" class="bc">' . $bread['name'] . '</li>';
+					    } else {
+						echo '<li class="bc"><a title="' . $bread['title'] . '" href="' . $bread['link'] . '">' . $bread['name'] . '</a></li>';
+					    }
+					}
+				    }
+				    ?>
                                 </ol>
                                 <div class="bsearch">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search for...">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="button"><i class="fa fa-search"></i> Serach in Blogs</button>
-                                        </span>
-                                    </div>
+				    <form action="http://www.google.com/search" method="get" target="blank" >
+					<div class="input-group">
+					    <input type="text" class="form-control" placeholder="Search for..." name="q" required="">
+					    <input type="hidden" value="onlinephpstudy.com" name="sitesearch"> 
+					    <span class="input-group-btn">
+						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Search Here</button>
+					    </span>
+					</div>
+				    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="blog-page">
-                        <?php require 'views/' . $__viewpage . '.php'; ?>
+			<h1><?= $this->heading1 ?></h1>
+			<?php require 'views/' . $__viewpage . '.php'; ?>
                     </div> 
                 </div>
                 <div class="col-sm-3 col-md-3 pl0  ">
-                    <div class="right-box"> 
-                        <h4>Categories</h4>
+                    <div class="right-box">
+			<h4><?= (empty($this->heading41)) ? '*********Enter Here Category Name****' : $this->heading41 ?></h4>
                         <div class="right-box-content">
                             <ul class="blog-categories">
-                                <li class="active"><a href="#">PHP (116)</a></li>
-                                <li><a href="#">MySQL (7)</a></li>
-                                <li><a href="#">PHP Framework (4)</a></li>
-                                <li><a href="#">Designing (23)</a></li>
-                                <li><a href="#">Jobs (5)</a></li>
+				<li <?= (empty($this->active_cat)) ? 'class="active"' : '' ?> ><a href="<?= URL ?>blog">View All Blogs</a></li>
+				<?php
+				foreach ($this->catList as $catList) {
+				    $status = ($this->active_cat == $catList['link']) ? 'class="active"' : '';
+				    echo '<li ' . $status . '><a href="' . URL . 'blog/cat/' . $catList['link'] . '">' . $catList['blog_category'] . ' (' . $catList['blog_count'] . ')</a></li>';
+				}
+				?>
                             </ul>
                         </div> 
                     </div>
@@ -100,13 +107,16 @@
                         <h4>Sign-Up to Newsletter</h4>
                         <div class="right-box-content">
                             <div class="bsignup">
-                                <p>Subscribe our blogs updates and jobs via Email</p>
-                                <div class="input-group">
-                                    <input type="text" placeholder="Your email address" class="form-control">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-success">Sign up!</button>
-                                    </span>
-                                </div>
+                                <p class="text-success">Subscribe our newsletter to get updates via Email</p>
+				<form name="signupFrm" id="signupFrm" method="post">
+				    <div class="input-group">
+					<input type="text" id="signUpemail" name="signUpemail" placeholder="Your email address" class="form-control" required="" >
+					<span class="input-group-btn">
+					    <button type="submit" id="signUp" class="btn btn-success">Sign up!</button>
+					</span>
+				    </div>
+				</form>
+				<span id="msg"></span>
                             </div>
                         </div> 
                     </div>
@@ -114,13 +124,15 @@
                         <h4>Most Popular Posts</h4>
                         <div class="right-box-content">
                             <ul class="blog-popular-post">
-                                <li><a href="#">PHP Login Page Example.</a></li>
-                                <li><a href="#">Search Engine Optimization (SEO)</a></li>
-                                <li><a href="#">Auto Load and Refresh Div every 10 Seconds with jQuery.</a></li>
-                                <li><a href="#">How to post into a Facebook Page with PHP using Graph API</a></li>
-                                <li><a href="#">Create a RESTful services using Slim PHP Framework</a></li>
-                                <li><a href="#">Enabling APC (Alternative PHP Cache) for PHP</a></li>
-                                <li><a href="#">Custom Audio Player with Jquery Audio Controls Plugin</a></li>
+				<?php
+				if (!empty($this->popularBlogs)) {
+				    foreach ($this->popularBlogs as $pb) {
+					echo '<li>';
+					echo '<a href ="' . URL . 'blog/view/' . $pb['id'] . '/' . $pb['url'] . '">' . $pb['name'] . '</a>';
+					echo '</li>';
+				    }
+				}
+				?>
                             </ul>
                         </div> 
                     </div>
