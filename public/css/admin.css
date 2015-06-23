@@ -40,7 +40,8 @@ and open the template in the editor.
 }
 
 .box_admin {
-    margin: -5px 0 15px; 
+    margin: -5px 0 15px;
+    padding-bottom: 10px;
 }
 .col-sm-9{
     padding-right: 0px;
