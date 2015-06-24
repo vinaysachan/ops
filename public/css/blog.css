@@ -480,14 +480,22 @@ article .blog-comments:before{ content: "\f086";}
     margin-bottom: 20px;
     padding: 10px;
 }
-.qa-list h3 {margin: 0px; padding: 0px;}
+.qa-list h3 {
+    margin: 0px; 
+    padding: 0px;
+    color: #0000cc;
+    font-family: "Roboto Slab",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+}
 .qa-list h3 a{ 
     color: #000033;
     font-family: "Roboto Slab",Helvetica,Arial,sans-serif;
     font-size: 13px;
     line-height: 28px;
-    margin: 0;
-    text-align: center;
+    margin: 0; 
     text-decoration: none;
 }
 .qa-list h3 a:before{
@@ -524,7 +532,7 @@ a.view-answer:after{
     background-color: #fdfdfd;
     border-color: #4285f4;
     color: #000033;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 25px;
     margin-bottom: 5px;
     padding: 0 20px 5px;

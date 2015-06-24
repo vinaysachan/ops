@@ -16,7 +16,7 @@
 			echo '<div class="blog-thumb"><img src="' . URL . BLOG_IMG_PATH . $blogData['images'] . '" /></div>';
 			echo '<h2><a title=' . $blogData['name'] . ' href="' . URL . 'blog/view/' . $blogData['id'] . '/' . $blogData['url'] . '">' . $blogData['name'] . '</a></h2><div class="bbline"></div>';
 			echo '<div class="blog-content">' . $blogData['blog_intro'] . '</div>';
-			echo '<div class="readmore pull-right"><a href="' . URL . 'blog/view/' . $blogData['url'] . '">Read more »</a></div>';
+			echo '<div class="readmore pull-right"><a href="' . URL . 'blog/view/' . $blogData['id'] . '/' . $blogData['url'] . '">Read more »</a></div>';
 		    }
 		    ?>
 		</div>

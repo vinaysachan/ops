@@ -29,10 +29,11 @@ class Index extends Controller {
             ['http-equiv'=> 'Content-Type','content' => 'text/html;charset=utf-8'],
             ['http-equiv'=> 'X-UA-Compatible','content' => 'IE=edge'],
             ['name'=> 'author','content' => 'Vinay Sachan'],
-            ['name'=> 'description','content' => 'put your page description here'],
+            ['name'=> 'description','content' => 'Online PHP Study is an Online tutorial for Learn PHP, MYSQL, MYSQLi, Ajax, java-script, CMS Like WordPress, Drupal and Joomla, Framework Like Yii, CodeIgniter, Zend and Cake-PHP and more related to PHP Study with PHP Jobs.'],
             ['name'=> 'Keywords','content' => 'put your page Keywords here'],
             ['name'=> 'viewport','content' => 'width=device-width, initial-scale=1.0'],
             ['name'=> 'robots','content' => 'index,follow'],
+	    ['name'=> 'alexaVerifyID','content' => 'uhLLcAmPD-rHAWR4z2X1xkp9JYk'],
         ];
           
          

@@ -50,23 +50,6 @@
 	<?php
 	require 'views/' . $__viewpage . '.php';
 	?>
-
-
-
-
-
-        <footer>
-            <span class="text-left">
-                Copyright &copy; 2012 - 2014  All rights reserved. 
-                <a target="_blank" href="#">Dev OPS</a> 
-            </span>
-            <span class="text-right pull-right">
-                <ul class="footer-links">  
-                    <li><a href="">Articles - Blogs</a></li> 
-                    <li><a href="">Jobs</a></li> 
-                    <li><a href="">Interview Questions</a></li> 
-                </ul> 
-            </span> 
-        </footer>
+        <?php require 'views/layouts/main_footer.php'; ?>
     </body>
 </html>
