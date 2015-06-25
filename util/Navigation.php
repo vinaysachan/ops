@@ -166,6 +166,10 @@ class Navigation {
 			'link' => 'admin/content',
 		    ),
 		    array(
+			'label' => 'Manage Gallery',
+			'link' => 'admin/gallery',
+		    ),
+		    array(
 			'label' => 'Interview Question Categories',
 			'link' => 'admin/interview_ques_cat',
 		    ),

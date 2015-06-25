@@ -429,8 +429,17 @@ ul.left_menu li.active ul li.current a:before{
 
 
 
-.content{
-    padding: 0 15px;
+.content {
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    line-height: 25px;
+    padding: 0 15px 15px;
+    text-align: justify;
+}
+.content img{
+    padding: 25px;
+    display: block;
+    height: auto;
 }
 .content h2{
     border-bottom: 1px solid #f0f0f0;

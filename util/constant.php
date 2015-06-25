@@ -23,6 +23,7 @@ define('FRONT_PAGE', 'front_page');
 
 //====>
 define('BLOG_IMG_PATH','uploads/blog_imgaes/');
+define('GALLERY_IMG_PATH','uploads/content_images/');
 
 
 //====> Question Level

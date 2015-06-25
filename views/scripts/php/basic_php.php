@@ -1,10 +1,8 @@
- 
-<pre>
-<?php 
+<?php
 
-
-print_r($this->pageContent);
-
-
-
-?></pre>
+if (!empty($this->pageContent)) {
+    foreach ($this->pageContent as $pageData) {
+	echo $pageData['content'];
+    }
+}
+?>

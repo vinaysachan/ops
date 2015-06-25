@@ -339,6 +339,29 @@ class Admin extends Controller {
 	$this->view->render('scripts/admin/interview_ques_ans');
     }
 
+    public function gallery() {
+	$this->view->active = 'admin/gallery';
+	$this->view->heading = $this->view->title = 'Manage Gallery\'s Images ';
+	$this->view->subheading = 'Manage Images<small><em>Here we can add new image or delete old image</em></small>';
+	if (isset($_POST['add']) && (!empty($_FILES["img"]["name"]))) {
+	    $target_dir = GALLERY_IMG_PATH;
+	    $file_name = basename($_FILES["img"]["name"]);
+	    $target_file = $target_dir . $file_name;
+	    move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+	    $data = [
+		'path_full_img' => URL . $target_file,
+		'active' => $_POST['active'],
+		'date_created' => date("Y-m-d H:i:s")
+	    ];
+	    $this->model->galleryInsert($data);
+	    $msg = urlencode('Image added Successfully');
+	    header('location: ' . URL . 'admin/gallery?succ-msg=' . $msg);
+	}
+	// ==> Get All Images
+	$this->view->gallery = $this->model->getGalleryList();
+	$this->view->render('scripts/admin/gallery');
+    }
+
 //    public function alexaaddaa($param = NULL) {
 //	$this->view->active = 'admin/alexaaddaa';
 //	$this->view->render('scripts/admin/alexaaddaa');

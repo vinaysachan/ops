@@ -139,5 +139,14 @@ class Admin_model extends Model {
 	$sql = "SELECT COUNT(*) as num FROM {$statement}";
 	return $this->db->select($sql,$whereCon); 
     }
-
+    
+    public function galleryInsert($data) {
+	$this->db->insert('gallery', $data);
+    }
+    
+    public function getGalleryList() {
+	$whereCon = [];
+	$sql = "SELECT * FROM gallery";
+	return $this->db->select($sql,$whereCon); 
+    }
 }
