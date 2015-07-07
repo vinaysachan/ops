@@ -450,6 +450,7 @@ ul.left_menu li.active ul li.current a:before{
     margin: 10px 0;
     padding: 10px 0;
 }
+ 
 h2 >small{
     display: block;
     line-height: 160%;
@@ -571,4 +572,8 @@ ul.pagging a:hover,
 ul.pagging a.current {
     background:#4285f4;
     color:#fff; 
+}
+
+blockquote {
+    font-size: 14px;
 }

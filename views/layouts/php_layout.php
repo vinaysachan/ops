@@ -98,12 +98,12 @@
 				    require 'views/' . $__viewpage . '.php';
 				    ?>
 				</div>
-				<nav>
+<!--				<nav>
 				    <ul class="pager">
 					<li class="previous"><a href="">Previous Page</a></li>
 					<li class="next"><a href="">Next page</a></li>
 				    </ul>
-				</nav>
+				</nav>-->
 			    </div>
 			</div>
 		    </div>  

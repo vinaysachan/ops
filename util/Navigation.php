@@ -91,6 +91,10 @@ class Navigation {
 			'label' => 'Installation on Mac OS X',
 			'link' => 'php/basic_php/installing_of_php_mac',
 		    ),
+		    array(
+			'label' => 'Installation on Mac OS X',
+			'link' => 'php/basic_php/installation_on_cloud',
+		    ),
 		)
 	    ),
 	    array(
@@ -109,6 +113,54 @@ class Navigation {
 			'label' => 'PHP Comparison Operator ',
 			'link' => 'php/basic_php/php_comparison_operator',
 		    ),
+		)
+	    ),
+	    array(
+		'label' => 'PHP FUNCTION',
+		'link' => 'javascript:void(0)',
+		'subMenu' => array(
+		    array(
+				'label' => 'PHP Function',
+				'link' => 'php/basic_php/php_function',
+		    ),
+		    array(
+				'label' => 'Create Your Own Functions',
+				'link' => 'php/basic_php/your_own_function',
+		    ),
+			array(
+				'label' => 'Function Scope',
+				'link' => 'php/basic_php/function_scope',
+		    ),
+			array(
+				'label' => 'Working with References',
+				'link' => 'php/basic_php/working_with_reference',
+		    ),
+			array(
+				'label' => 'Recursive Functions',
+				'link' => 'php/basic_php/recursive_functions',
+		    ),
+		)
+	    ),
+	    array(
+		'label' => 'Object Oriented Programming',
+		'link' => 'javascript:void(0)',
+		'subMenu' => array(
+		    array(
+				'label' => 'PHP OOP Introduction',
+				'link' => 'php/basic_php/oop_basic_introduction',
+		    ),
+			array(
+				'label' => 'PHP Basic OOP Concepts',
+				'link' => 'php/basic_php/basic_oop_concept',
+		    ),
+			array(
+				'label' => 'PHP Object\'s Properties',
+				'link' => 'php/basic_php/properties_oop',
+		    ),
+			array(
+				'label' => 'PHP Object\'s Method',
+				'link' => 'php/basic_php/method_oop',
+		    )
 		)
 	    )
 	);
@@ -168,14 +220,6 @@ class Navigation {
 		    array(
 			'label' => 'Manage Gallery',
 			'link' => 'admin/gallery',
-		    ),
-		    array(
-			'label' => 'Interview Question Categories',
-			'link' => 'admin/interview_ques_cat',
-		    ),
-		    array(
-			'label' => 'Manage Interview Questions',
-			'link' => 'admin/interview_ques',
 		    )
 		)
 	    ),
@@ -192,8 +236,23 @@ class Navigation {
 			'link' => 'admin/blog_manage',
 		    ),
 		)
+	    ),
+	    array(
+		'label' => 'Manage Ques Ans',
+		'link' => 'javascript:void(0)',
+		'subMenu' => array(
+		    array(
+			'label' => 'Interview Question Categories',
+			'link' => 'admin/interview_ques_cat',
+		    ),
+		    array(
+			'label' => 'Manage Interview Questions',
+			'link' => 'admin/interview_ques',
+		    )
+		)
 	    )
 	);
     }
 
 }
+
