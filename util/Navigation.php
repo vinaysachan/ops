@@ -92,7 +92,7 @@ class Navigation {
 			'link' => 'php/basic_php/installing_of_php_mac',
 		    ),
 		    array(
-			'label' => 'Installation on Mac OS X',
+			'label' => 'Installation on Cloud',
 			'link' => 'php/basic_php/installation_on_cloud',
 		    ),
 		)

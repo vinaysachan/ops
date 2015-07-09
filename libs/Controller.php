@@ -25,6 +25,20 @@ class Controller {
 	    $this->model = new $modelName();
 	}
     }
+    
+    /**
+     * 
+     * @param string $name Name of the model
+     * @param string $path Location of the models
+     */
+    public function loadOtherModel($name, $modelPath = 'models/') {
+	$path = $modelPath . $name . '_model.php';
+	if (file_exists($path)) {
+	    require $path;
+	    $modelName = $name . '_Model';
+	    $this->model = new $modelName();
+	}
+    }
 
     public function loadLibrary($name, $librarypath = 'library/') {
 	$path = $librarypath . $name . '.php';

@@ -10,7 +10,7 @@ class Login extends Controller {
         $this->view->css = [
             'http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600',
             'http://fonts.googleapis.com/css?family=Roboto+Slab:400,700',
-            'public/bootstrap-3.2.0/css/bootstrap.css',
+            'public/bootstrap-3.2.0/css/bootstrap.min.css',
             'public/font-awesome/css/font-awesome.min.css',
             'public/css/login.css'
         ];

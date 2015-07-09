@@ -9,7 +9,7 @@ class Php extends Controller {
 	$this->view->css = array(
 	    'http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600',
 	    'http://fonts.googleapis.com/css?family=Roboto+Slab:400,700',
-	    'public/bootstrap-3.2.0/css/bootstrap.css',
+	    'public/bootstrap-3.2.0/css/bootstrap.min.css',
 	    'public/font-awesome/css/font-awesome.min.css',
 	    'public/css/main.css',
 	    'public/css/blog.css',
@@ -61,17 +61,21 @@ class Php extends Controller {
 	$this->view->popularBlogs = $this->model->getPopularBlogs();
 	//====> page Content Data
 	$contentData = $this->model->getPageContent($params);
-	$this->view->heading = $contentData[0]['page_heading'];
-	$this->view->pageContent = $contentData;
-	//====> Manage Page Navigation
-	$this->view->breadcrumb = [
-	    ['link' => URL, 'title' => SITENAME, 'name' => 'Home'],
-	    ['link' => URL . 'php/basic_php', 'title' => SITENAME . ' : Basic PHP', 'name' => 'Basic PHP'],
-	    ['link' => '', 'title' => $contentData[0]['page_heading'], 'name' => $contentData[0]['page_heading']],
-	];
+	if (!empty($contentData)) {
+	    $this->view->heading = $contentData[0]['page_heading'];
+	    $this->view->pageContent = $contentData;
+	    //====> Manage Page Navigation
+	    $this->view->breadcrumb = [
+		['link' => URL, 'title' => SITENAME, 'name' => 'Home'],
+		['link' => URL . 'php/basic_php', 'title' => SITENAME . ' : Basic PHP', 'name' => 'Basic PHP'],
+		['link' => '', 'title' => $contentData[0]['page_heading'], 'name' => $contentData[0]['page_heading']],
+	    ];
 
-	$this->view->allLeftLinks = Navigation::basicPHPLeftMenu();
-	$this->view->render('scripts/php/basic_php');
+	    $this->view->allLeftLinks = Navigation::basicPHPLeftMenu();
+	    $this->view->render('scripts/php/basic_php');
+	} else {
+	    header('location: ' . URL . 'error');
+	}
     }
 
     function advance_php($param = NULL) {
@@ -97,17 +101,21 @@ class Php extends Controller {
 	$this->view->popularBlogs = $this->model->getPopularBlogs();
 	//====> page Content Data
 	$contentData = $this->model->getPageContent($params);
-	$this->view->heading = $contentData[0]['page_heading'];
-	$this->view->pageContent = $contentData;
-	//====> Manage Page Navigation
-	$this->view->breadcrumb = [
-	    ['link' => URL, 'title' => SITENAME, 'name' => 'Home'],
-	    ['link' => URL . 'php/advance_php', 'title' => SITENAME . ' : ADVANCE_PHP PHP', 'name' => 'ADVANCE PHP'],
-	    ['link' => '', 'title' => $contentData[0]['page_heading'], 'name' => $contentData[0]['page_heading']],
-	];
+	if (!empty($contentData)) {
+	    $this->view->heading = $contentData[0]['page_heading'];
+	    $this->view->pageContent = $contentData;
+	    //====> Manage Page Navigation
+	    $this->view->breadcrumb = [
+		['link' => URL, 'title' => SITENAME, 'name' => 'Home'],
+		['link' => URL . 'php/advance_php', 'title' => SITENAME . ' : ADVANCE_PHP PHP', 'name' => 'ADVANCE PHP'],
+		['link' => '', 'title' => $contentData[0]['page_heading'], 'name' => $contentData[0]['page_heading']],
+	    ];
 
-	$this->view->allLeftLinks = Navigation::advancePHPLeftMenu();
-	$this->view->render('scripts/php/basic_php');
+	    $this->view->allLeftLinks = Navigation::advancePHPLeftMenu();
+	    $this->view->render('scripts/php/basic_php');
+	} else {
+	    header('location: ' . URL . 'error');
+	}
     }
 
 }
