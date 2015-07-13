@@ -74,7 +74,7 @@ class Php extends Controller {
 	    $this->view->allLeftLinks = Navigation::basicPHPLeftMenu();
 	    $this->view->render('scripts/php/basic_php');
 	} else {
-	    header('location: ' . URL . 'error');
+		header('location: ' . URL . 'error'); 
 	}
     }
 
