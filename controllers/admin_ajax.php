@@ -40,7 +40,27 @@ class Admin_ajax extends Controller {
 	echo json_encode($this->model->xhrAddQuestionCat()); 
 	exit();
     }
-
+    
+    function xhrGettestCatListings() {
+	$this->model->xhrGettestCatListings();
+	exit();
+    }
+    
+    function xhrDeltestCatListing() {
+	echo json_encode($this->model->xhrDeltestCatListing());
+    }
+    
+    function xhrGettestCatList() {
+	$this->model->xhrGettestCatList();
+	exit();
+    }
+    
+    function xhrAddtestCat() {
+	$msg = $this->model->xhrAddtestCat();
+	echo json_encode($msg);
+	exit();
+    }
+    
 }
 
 //

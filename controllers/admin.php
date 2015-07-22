@@ -362,6 +362,85 @@ class Admin extends Controller {
 	$this->view->render('scripts/admin/gallery');
     }
 
+    public function test_category() {
+	$this->view->active = 'admin/test_category';
+	$this->view->heading = $this->view->title = 'Manage Online Test Categories';
+	// ==> Add Js file for validation and Ajax 
+	$this->view->js[] = 'views/scripts/admin/js/test_cat.js';
+	$this->view->render('scripts/admin/test_category');
+    }
+
+    public function test_quesAns() {
+	$this->view->active = 'admin/test_quesAns';
+	$this->view->heading = $this->view->title = 'Online Test Categories';
+	// ==> Add some more js files
+	$this->view->js[] = 'public/dataTables/js/jquery.dataTables.min.js';
+	$this->view->js[] = 'public/dataTables/Responsive/js/dataTables.responsive.min.js';
+	// ==> Add some more css files
+	$this->view->css[] = 'public/dataTables/css/jquery.dataTables.css';
+	$this->view->css[] = 'public/dataTables/Responsive/css/dataTables.responsive.css';
+	// ==> Get All Questions
+	$this->view->questionsList = $this->model->gettestQuestionsList();
+
+
+	$this->view->render('scripts/admin/test_quesAns');
+    }
+
+    public function test_ques_ae($id = NULL) {
+	$this->view->active = 'admin/test_quesAns';
+	$title = ($id == NULL) ? 'Add New Online Test Question' : 'Update Online Test Question';
+	$this->view->heading = $this->view->title = $title;
+	// ==> Add some more js files
+	$this->view->js[] = 'public/tinymce/tinymce.min.js';
+	$this->view->js[] = 'public/select2/js/select2.full.min.js';
+	$this->view->js[] = 'views/scripts/admin/js/test_ques_ae.js';
+	// ==> Add some more css files
+	$this->view->css[] = 'public/select2/css/select2.min.css';
+	// ==> Get Question category list
+	$this->view->quesCatLists = $this->model->gettestQuesLists();
+	if ($id == NULL) {
+	    $this->view->subheading = 'Add new Test Questions<small><em>Here we can add the test Questions with thier Answer Option and category .</em></small>';
+	    if (isset($_POST['add'])) {
+		$data = [
+		    'cat_id' => $_POST['cat_id'],
+		    'question' => $_POST['question'],
+		    'level' => $_POST['level'],
+		    'ans' => $_POST['ans'],
+		    'mark' => $_POST['mark'],
+		    'active' => $_POST['active'],
+		    'date_created' => date("Y-m-d H:i:s")
+		];
+		$id = $this->model->testquestionInsert($data);
+		$msg = urlencode('Test Questions added Successfully');
+		header('location: ' . URL . 'admin/test_ques_ae/' . $id . '?succ-msg=' . $msg);
+	    }
+	} else {
+	    $this->view->subheading = 'Update Test Questions<small><em>Here we can update the test Questions with thier Answer Option and category.</em></small>';
+	    $quesData = $this->model->gettestQuesData($id);
+	    if (empty($quesData)) {
+		$msg = urlencode('Unable to update Test Questions');
+		header('location: ' . URL . 'admin/test_quesAns?succ-err=' . $msg);
+	    } else {
+		$this->view->quesData = $quesData;
+		if (isset($_POST['update'])) {
+		    $data = [
+			'cat_id' => $_POST['cat_id'],
+			'question' => $_POST['question'],
+			'level' => $_POST['level'],
+			'ans' => $_POST['ans'],
+			'mark' => $_POST['mark'],
+			'active' => $_POST['active']
+		    ];
+		    $this->model->testquestionUpdate($data, $id);
+		    $msg = urlencode('Test Questions Updated Successfully');
+		    header('location: ' . URL . 'admin/test_ques_ae/' . $id . '?succ-msg=' . $msg);
+		}
+	    }
+	}
+
+	$this->view->render('scripts/admin/test_ques_ae');
+    }
+
 //    public function alexaaddaa($param = NULL) {
 //	$this->view->active = 'admin/alexaaddaa';
 //	$this->view->render('scripts/admin/alexaaddaa');

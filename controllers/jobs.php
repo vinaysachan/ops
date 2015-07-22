@@ -36,10 +36,10 @@ class Jobs extends Controller {
 	    ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'],
 	    ['name' => 'robots', 'content' => 'index,follow'],
 	];
-	
+
 	//====> get Most Popular Posts
 	$this->view->popularBlogs = $this->model->getPopularBlogs();
-	
+
 	//====> Question categories :-
 	$this->view->heading41 = 'Interview Question Categories';
 	$this->view->catList = $this->model->getQuesCatLists();
@@ -57,7 +57,7 @@ class Jobs extends Controller {
 	    $page = 1;
 	$per_page = 10; // Set how many records do you want to display per page.
 	$startpoint = ($page * $per_page) - $per_page;
-	 
+
 	//====> Question List with Answer
 	$statement = $this->model->getQuestStatement($cat);
 	$data = $this->model->getQuesLists($statement, $cat, $startpoint, $per_page);
@@ -71,6 +71,29 @@ class Jobs extends Controller {
 	$total = $this->model->getTotalCount($statement, $cat);
 	$this->view->pagination = $this->library->pagging($total, $per_page, $page, $url = '?');
 	$this->view->render('scripts/jobs/interview_question_answer');
+    }
+
+    function online_php_test() {
+	$this->view->layout = 'test_layout';
+	$this->view->title = 'Online PHP Skill test, Web Technology Skill test, Online practice test, exam, Quiz : ' . SITENAME;
+	$this->view->metaTags = [
+	    ['charset' => 'utf-8'],
+	    ['http-equiv' => 'Content-Type', 'content' => 'text/html;charset=utf-8'],
+	    ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'],
+	    ['name' => 'author', 'content' => 'Vinay Sachan'],
+	    ['name' => 'description', 'content' => 'take your free online PHP quiz,test here'],
+	    ['name' => 'Keywords', 'content' => 'PHP Skill test, Online Tests, Online Assessments, Test your Skills, PHP Test, CSS test, Java Script test, MySQL Test, NoSQL Test, FrameWork Test, core php skill test, PHP quiz'],
+	    ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'],
+	    ['name' => 'robots', 'content' => 'index,follow'],
+	];
+	//====> Include main js File
+	$this->view->js[] = 'views/scripts/jobs/js/online_php_test.js';
+	//====> Manage Page Breadcrum
+	$this->view->breadcrumb = [
+	    ['link' => URL, 'title' => SITENAME, 'name' => 'Home'],
+	    ['link' => '', 'title' => 'Online Skill test', 'name' => 'Online Skill test'],
+	];
+	$this->view->render('scripts/jobs/online_php_test');
     }
 
 }

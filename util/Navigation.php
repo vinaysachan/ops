@@ -60,10 +60,10 @@ class Navigation {
 			'label' => 'Interview Questions',
 			'link' => 'jobs/interview_question_answer',
 		    ),
-//                    array(
-//                        'label' => 'PHP Test',
-//                        'link' => 'jobs/test',
-//                    ),
+                    array(
+                        'label' => 'Online Skill Test',
+                        'link' => 'jobs/online_php_test',
+                    ),
 		)
 	    ),
 	);
@@ -250,7 +250,15 @@ class Navigation {
 			'link' => 'admin/interview_ques',
 		    )
 		)
-	    )
+	    ),
+	    [
+		'label' => 'Online Test',
+		'link' => 'javascript:void(0)', 
+		'subMenu' => [
+		    ['label' => 'Manage Test category', 'link' => 'admin/test_category'],
+		    ['label' => 'Manage Question Answer', 'link' => 'admin/test_quesAns']
+		]
+	    ]
 	);
     }
 

@@ -82,7 +82,8 @@ class Database extends PDO {
      * @return integer Affected Rows
      */
     public function delete($table, $where, $limit = 1) {
-	return $this->exec("DELETE FROM $table WHERE $where LIMIT $limit");
+	$addlimit = ($limit == '') ? '': " LIMIT $limit" ;
+	return $this->exec("DELETE FROM $table WHERE $where $addlimit");
     }
 
 }

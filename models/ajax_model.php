@@ -30,4 +30,56 @@ class Ajax_model extends Model {
 	}
     }
 
+    public function xhrtestCategories() {
+	$whereCon = [];
+	$sql = 'SELECT id,cat_name, list_order,logo FROM test_category ORDER BY list_order ASC,cat_name ASC';
+	return $this->db->select($sql, $whereCon);
+    }
+
+    
+    public function xhrStarttest() {
+	
+	
+	
+	
+	//	Array
+//(
+//    [category] => Array
+//        (
+//            [1] => m
+//            [2] => m
+//            [3] => m
+//            [4] => m
+//        )
+//
+//    [cat] => Array
+//        (
+//            [0] => 2
+//            [1] => 3
+//        )
+//
+//    [sname] => sadasd
+//    [semail] => 
+//)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+    }
+    
+    
+    
+    
 }

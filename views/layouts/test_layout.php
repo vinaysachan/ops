@@ -20,10 +20,9 @@
 	    echo Util::jsList($this->js);
 	}
 	?>
-        <script> jQuery(document).ready(function () {
+        <script>jQuery(document).ready(function () {
                 Main.init();
-            });
-        </script>
+            });</script>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -46,7 +45,6 @@
                 </div>
             </div>
         </nav>
-
         <div class="container-fluid">
             <div class="row"> 
                 <div class="col-sm-9 col-md-9">
@@ -56,7 +54,7 @@
                                 <img class="img-responsive" src="<?= URL ?>public/images/onlinephpstudy.png">
                             </div>
                             <div class="col-md-8 col-sm-8">
-				<ol class="breadcrumb_ops"><?php Util::createBreadcrum($this->breadcrumb); ?></ol>
+                                <ol class="breadcrumb_ops"><?php Util::createBreadcrum($this->breadcrumb); ?></ol>
                                 <div class="bsearch">
 				    <form action="http://www.google.com/search" method="get" target="blank" >
 					<div class="input-group">
@@ -71,26 +69,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="blog-page">
-			<h1><?= $this->heading1 ?></h1>
+                    <div class="test-page">
 			<?php require 'views/' . $__viewpage . '.php'; ?>
                     </div> 
                 </div>
-                <div class="col-sm-3 col-md-3 pl0  ">
-                    <div class="right-box">
-			<h4><?= (empty($this->heading41)) ? '*********Enter Here Category Name****' : $this->heading41 ?></h4>
-                        <div class="right-box-content">
-                            <ul class="blog-categories">
-				<li <?= (empty($this->active_cat)) ? 'class="active"' : '' ?> ><a href="<?= URL ?>blog">View All Blogs</a></li>
-				<?php
-				foreach ($this->catList as $catList) {
-				    $status = ($this->active_cat == $catList['link']) ? 'class="active"' : '';
-				    echo '<li ' . $status . '><a href="' . URL . 'blog/cat/' . $catList['link'] . '">' . $catList['blog_category'] . ' (' . $catList['blog_count'] . ')</a></li>';
-				}
-				?>
-                            </ul>
-                        </div> 
-                    </div>
+                <div class="col-sm-3 col-md-3 pl0">
                     <div class="right-box"> 
                         <h4>Sign-Up to Newsletter</h4>
                         <div class="right-box-content">
@@ -106,22 +89,6 @@
 				</form>
 				<span id="msg"></span>
                             </div>
-                        </div> 
-                    </div>
-                    <div class="right-box"> 
-                        <h4>Most Popular Posts</h4>
-                        <div class="right-box-content">
-                            <ul class="blog-popular-post">
-				<?php
-				if (!empty($this->popularBlogs)) {
-				    foreach ($this->popularBlogs as $pb) {
-					echo '<li>';
-					echo '<a href ="' . URL . 'blog/view/' . $pb['id'] . '/' . $pb['url'] . '">' . $pb['name'] . '</a>';
-					echo '</li>';
-				    }
-				}
-				?>
-                            </ul>
                         </div> 
                     </div>
                     <div class="right-box"> 
@@ -141,6 +108,6 @@
                 </div>
             </div>
         </div>
- <?php require 'views/layouts/main_footer.php'; ?>
+	<?php require 'views/layouts/main_footer.php'; ?>
     </body>
 </html>

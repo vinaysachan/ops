@@ -3,10 +3,11 @@
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
-            <name>OPS</name>
+            <name>ops</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
-            <word>blogs</word>
+            <word>onlinephpstudy</word>
+            <word>Tweets</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
