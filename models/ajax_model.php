@@ -37,45 +37,9 @@ class Ajax_model extends Model {
     }
 
     
-    public function xhrStarttest() {
-	
-	
-	
-	
-	//	Array
-//(
-//    [category] => Array
-//        (
-//            [1] => m
-//            [2] => m
-//            [3] => m
-//            [4] => m
-//        )
-//
-//    [cat] => Array
-//        (
-//            [0] => 2
-//            [1] => 3
-//        )
-//
-//    [sname] => sadasd
-//    [semail] => 
-//)
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    public function xhrStarttest($post) {
+	 
+        print_r($post);
 	 
     }
     

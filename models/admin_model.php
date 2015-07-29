@@ -169,14 +169,14 @@ class Admin_model extends Model {
 	foreach ($data['ans'] as $key => $ans) {
 	    $mark = ($key == $data['mark']) ? 1 : 0;
 	    $adata = ['q_id' => $qid, 'ans' => $ans, 'mark' => $mark];
-	    $this->db->insert('test_ans', $adata);
+	    $this->db->insert('test_ques_ans', $adata);
 	}
 	return $qid;
     }
     
     public function gettestQuesData($id) {
 	$whereCon = [ 'id' => $id];
-	$sql = 'SELECT a.ans,a.mark,q.question,q.active,q.level,c.id as cat_id ,c.cat_name FROM test_ans AS a INNER JOIN test_ques AS q ON q.id=a.q_id INNER JOIN test_category AS c ON c.id=q.cat_id WHERE a.q_id = :id';
+	$sql = 'SELECT a.ans,a.mark,q.question,q.active,q.level,c.id as cat_id ,c.cat_name FROM test_ques_ans AS a INNER JOIN test_ques AS q ON q.id=a.q_id INNER JOIN test_category AS c ON c.id=q.cat_id WHERE a.q_id = :id';
 	return $this->db->select($sql, $whereCon);
     }
     
@@ -184,11 +184,11 @@ class Admin_model extends Model {
     public function testquestionUpdate($data, $id) {
 	$qdata = ['cat_id' => $data['cat_id'], 'question' => $data['question'],'level' => $data['level'], 'active' => $data['active']];
 	$this->db->update('test_ques', $qdata, "`id` = {$id}");
-	$this->db->delete('test_ans', "q_id = '$id'",'');
+	$this->db->delete('test_ques_ans', "q_id = '$id'",'');
 	foreach ($data['ans'] as $key => $ans) {
 	    $mark = ($key == $data['mark']) ? 1 : 0;
 	    $adata = ['q_id' => $id, 'ans' => $ans, 'mark' => $mark];
-	    $this->db->insert('test_ans', $adata);
+	    $this->db->insert('test_ques_ans', $adata);
 	}
 	
     }
