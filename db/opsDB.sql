@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.5.38-0ubuntu0.14.04.1-log - (Ubuntu)
+-- Server version:               5.6.25-0ubuntu0.15.04.1 - (Ubuntu)
 -- Server OS:                    debian-linux-gnu
--- HeidiSQL Version:             9.2.0.4947
+-- HeidiSQL Version:             9.1.0.4867
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS `alexa_rank` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Dumping data for table opsDB.alexa_rank: 5 rows
-DELETE FROM `alexa_rank`;
 /*!40000 ALTER TABLE `alexa_rank` DISABLE KEYS */;
 INSERT INTO `alexa_rank` (`date`, `rank`) VALUES
 	('2015-06-21', 14005302),
@@ -52,7 +51,6 @@ CREATE TABLE IF NOT EXISTS `blog` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.blog: 1 rows
-DELETE FROM `blog`;
 /*!40000 ALTER TABLE `blog` DISABLE KEYS */;
 INSERT INTO `blog` (`id`, `name`, `url`, `blog_cat`, `blog_intro`, `content`, `images`, `writer`, `active`, `is_popular`, `date_created`, `date_updated`) VALUES
 	(1, 'Types of SQL Statements : DDL, DML, DCL and TCL commands', 'types_of_sql_statements_ddl_dml_dcl_tcl_commands', 1, '<h2>DDL</h2>\r\n<p><br /><strong>Data Definition Language</strong>&nbsp;(DDL) statements are used to define the database structure or schema. Some examples:</p>\r\n<ul>\r\n<li>\r\n<p>CREATE - to create objects in the database</p>\r\n</li>\r\n<li>\r\n<p>ALTER - alters the structure of the database</p>\r\n</li>\r\n<li>\r\n<p>DROP - delete objects from the database</p>\r\n</li>\r\n<li>\r\n<p>TRUNCATE - remove all records from a table, including all spaces allocated for the records are removed</p>\r\n</li>\r\n<li>\r\n<p>COMMENT - add comments to the data dictionary</p>\r\n</li>\r\n<li>\r\n<p>RENAME - rename an object</p>\r\n</li>\r\n</ul>', '<h2>DDL</h2>\r\n<p><br /><strong>Data Definition Language</strong>&nbsp;(DDL) statements are used to define the database structure or schema. Some examples:</p>\r\n<ul>\r\n<li>\r\n<p>CREATE - to create objects in the database</p>\r\n</li>\r\n<li>\r\n<p>ALTER - alters the structure of the database</p>\r\n</li>\r\n<li>\r\n<p>DROP - delete objects from the database</p>\r\n</li>\r\n<li>\r\n<p>TRUNCATE - remove all records from a table, including all spaces allocated for the records are removed</p>\r\n</li>\r\n<li>\r\n<p>COMMENT - add comments to the data dictionary</p>\r\n</li>\r\n<li>\r\n<p>RENAME - rename an object</p>\r\n</li>\r\n</ul>\r\n<h2>&nbsp;</h2>\r\n<h2>DML</h2>\r\n<p><strong>Data Manipulation Language</strong>&nbsp;(DML) statements are used for managing data within schema objects. Some examples:</p>\r\n<ul>\r\n<li>\r\n<p>SELECT - retrieve data from the a database</p>\r\n</li>\r\n<li>\r\n<p>INSERT - insert data into a table</p>\r\n</li>\r\n<li>\r\n<p>UPDATE - updates existing data within a table</p>\r\n</li>\r\n<li>\r\n<p>DELETE - deletes all records from a table, the space for the records remain</p>\r\n</li>\r\n<li>\r\n<p>MERGE - UPSERT operation (insert or update)</p>\r\n</li>\r\n<li>\r\n<p>CALL - call a PL/SQL or Java subprogram</p>\r\n</li>\r\n<li>\r\n<p>EXPLAIN PLAN - explain access path to data</p>\r\n</li>\r\n<li>\r\n<p>LOCK TABLE - control concurrency</p>\r\n</li>\r\n</ul>\r\n<h2>&nbsp;</h2>\r\n<h2>DCL</h2>\r\n<p><strong>Data Control Language</strong>&nbsp;(DCL) statements. Some examples:</p>\r\n<ul>\r\n<li>\r\n<p>GRANT - gives user\'s access privileges to database</p>\r\n</li>\r\n<li>\r\n<p>REVOKE - withdraw access privileges given with the GRANT command</p>\r\n</li>\r\n</ul>\r\n<h2>&nbsp;</h2>\r\n<h2>TCL</h2>\r\n<p><strong>Transaction Control</strong>&nbsp;(TCL) statements are used to manage the changes made by DML statements. It allows statements to be grouped together into logical transactions.</p>\r\n<ul>\r\n<li>\r\n<p>COMMIT - save work done</p>\r\n</li>\r\n<li>\r\n<p>SAVEPOINT - identify a point in a transaction to which you can later roll back</p>\r\n</li>\r\n<li>\r\n<p>ROLLBACK - restore database to original since the last COMMIT</p>\r\n</li>\r\n<li>\r\n<p>SET TRANSACTION - Change transaction options like isolation level and what rollback segment to use</p>\r\n</li>\r\n</ul>', 'types_of_sql_statements_ddl_dml_dcl_tcl_commands_Sql_lang.jpg', 2, 'Y', 'Y', '2015-06-24 05:27:58', '2015-06-24 11:05:54');
@@ -72,7 +70,6 @@ CREATE TABLE IF NOT EXISTS `blog_category` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.blog_category: 1 rows
-DELETE FROM `blog_category`;
 /*!40000 ALTER TABLE `blog_category` DISABLE KEYS */;
 INSERT INTO `blog_category` (`id`, `name`, `link`, `date_created`, `date_updated`) VALUES
 	(1, 'Database, MySQL & NoSQL', 'dbms_mysql_nosql', '2015-06-24 05:10:56', NULL);
@@ -92,7 +89,6 @@ CREATE TABLE IF NOT EXISTS `blog_comments` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.blog_comments: 0 rows
-DELETE FROM `blog_comments`;
 /*!40000 ALTER TABLE `blog_comments` DISABLE KEYS */;
 /*!40000 ALTER TABLE `blog_comments` ENABLE KEYS */;
 
@@ -106,7 +102,6 @@ CREATE TABLE IF NOT EXISTS `blog_users_data` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Dumping data for table opsDB.blog_users_data: 0 rows
-DELETE FROM `blog_users_data`;
 /*!40000 ALTER TABLE `blog_users_data` DISABLE KEYS */;
 /*!40000 ALTER TABLE `blog_users_data` ENABLE KEYS */;
 
@@ -124,7 +119,6 @@ CREATE TABLE IF NOT EXISTS `gallery` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.gallery: 3 rows
-DELETE FROM `gallery`;
 /*!40000 ALTER TABLE `gallery` DISABLE KEYS */;
 INSERT INTO `gallery` (`id`, `path_full_img`, `path_min_img`, `active`, `date_created`, `date_updated`) VALUES
 	(1, 'http://onlinephpstudy.com/uploads/content_images/how_php_works.jpg', '', 'Y', '2015-06-25 05:44:08', NULL),
@@ -145,7 +139,6 @@ CREATE TABLE IF NOT EXISTS `newsletter_registration` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.newsletter_registration: 0 rows
-DELETE FROM `newsletter_registration`;
 /*!40000 ALTER TABLE `newsletter_registration` DISABLE KEYS */;
 /*!40000 ALTER TABLE `newsletter_registration` ENABLE KEYS */;
 
@@ -166,7 +159,6 @@ CREATE TABLE IF NOT EXISTS `page_content` (
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED COMMENT='Here we save the content of the pages.';
 
 -- Dumping data for table opsDB.page_content: 9 rows
-DELETE FROM `page_content`;
 /*!40000 ALTER TABLE `page_content` DISABLE KEYS */;
 INSERT INTO `page_content` (`id`, `site_path`, `parent`, `page_heading`, `content`, `active`, `date_created`, `date_updated`) VALUES
 	(1, 'front_page', 2, 'INTRODUCTION OF PHP', '<h2>How PHP Works ?</h2>\r\n<div><img style="float: left;" src="../../uploads/content_images/how_php_works.jpg" alt="" width="395" height="287" /><br />When a user navigates in her browser to a page that ends with a .php extension, the request is sent to a web server, which directs&nbsp; the request to the PHP interpreter. As shown in the diagram above, the PHP interpreter processes the page, communicating with file systems, databases, and email servers as necessary, and then delivers a web page to the web server to return to the browser.</div>\r\n<div class="clearfix">&nbsp;</div>\r\n<h2>Characteristics of PHP</h2>\r\n<ul>\r\n<li>Familiarity</li>\r\n<li>Simplicity</li>\r\n<li>Efficiency</li>\r\n<li>Security</li>\r\n<li>Flexibility</li>\r\n<li>HTML-Embedded</li>\r\n</ul>\r\n<h2>Who is using PHP?</h2>\r\n<div class="col-md-6 pull-left">\r\n<ul class="nav">\r\n<li><a title="Facebook is using PHP" href="http://w3techs.com/sites/info/facebook.com" target="_blank"> Facebook.com</a></li>\r\n<li><a title="Wikipedia is also use PHP" href="http://w3techs.com/sites/info/wikipedia.org" target="_blank">Wikipedia.org</a></li>\r\n<li><a title="Wordpress is based on PHP" href="http://w3techs.com/sites/info/wordpress.com" target="_blank"> Wordpress.com</a></li>\r\n<li><a title="Weibo is using PHP" href="http://w3techs.com/sites/info/weibo.com" target="blank"> Weibo.com</a></li>\r\n<li><a title="Babylon is using PHP" href="http://w3techs.com/sites/info/babylon.com" target="blank"> Babylon.com</a></li>\r\n</ul>\r\n</div>\r\n<div class="col-md-6 pull-left">\r\n<ul class="nav">\r\n<li><a title="Baidu is using PHP" href="http://w3techs.com/sites/info/baidu.com" target="blank"> Baidu.com</a></li>\r\n<li><a title="Qq is using PHP" href="http://w3techs.com/sites/info/qq.com" target="blank"> Qq.com</a></li>\r\n<li><a title="Mail.ru is using PHP" href="http://w3techs.com/sites/info/mail.ru" target="blank"> Mail.ru</a></li>\r\n<li><a title="Sony is using PHP" href="http://w3techs.com/sites/info/sony.com" target="blank"> Sony.com</a></li>\r\n<li><a title="OLX is using PHP" href="http://w3techs.com/sites/info/olx.com" target="blank"> Olx.com</a></li>\r\n</ul>\r\n</div>\r\n<div class="clear-fix">&nbsp;</div>\r\n<h2>World Wide Web (www)</h2>\r\n<p>The Internet is a global system of interconnected computer networks that use the standard Internet protocol suite (TCP/IP) to serve billions of users worldwide. It is a network of networks that consists of millions of private, public, academic, business, and government networks, of local to global scope, that are linked by a broad array of electronic, wireless and optical networking technologies. <br />The World Wide Web (www) is a collective name for all the web pages on the Internet.</p>\r\n<h2>Web Page</h2>\r\n<div>Web page is a text document that uses commands in a special language called HTML to add formatting, graphics and other media, and links to other pages. There are two types of web pages :-<br /> <span class="text-danger">Static Web page</span> is a page whose contents can not change automatically each time the page is viewed.<br /> <span class="text-danger">Dynamic Web page</span> is a page whose contents can change automatically each time the page is viewed.</div>', 'Y', '2015-06-25 05:44:52', '2015-06-25 11:53:24'),
@@ -193,7 +185,6 @@ CREATE TABLE IF NOT EXISTS `page_content_parent` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.page_content_parent: 3 rows
-DELETE FROM `page_content_parent`;
 /*!40000 ALTER TABLE `page_content_parent` DISABLE KEYS */;
 INSERT INTO `page_content_parent` (`id`, `parent`, `url`, `name`) VALUES
 	(1, 0, 'php', 'PHP'),
@@ -217,7 +208,6 @@ CREATE TABLE IF NOT EXISTS `questions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.questions: ~7 rows (approximately)
-DELETE FROM `questions`;
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
 INSERT INTO `questions` (`id`, `question`, `question_category_id`, `level`, `active`, `date_created`, `date_updated`) VALUES
 	(3, 'What is PHP ?', 1, 'E', 'Y', '2015-06-23 16:28:21', NULL),
@@ -242,7 +232,6 @@ CREATE TABLE IF NOT EXISTS `questions_answer` (
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.questions_answer: 9 rows
-DELETE FROM `questions_answer`;
 /*!40000 ALTER TABLE `questions_answer` DISABLE KEYS */;
 INSERT INTO `questions_answer` (`id`, `questions_id`, `answer`, `active`, `date_created`, `date_updated`) VALUES
 	(1, 1, '<p>The most overlooked question is also the one most candidates are unprepared to answer. This is often because job applicants don\'t do their homework on the position. Your job is to illustrate why you are the most qualified candidate. Review the job description and qualifications very closely to identify the skills and knowledge that are critical to the position, then identify experiences from your past that demonstrate those skills and knowledge.</p>', 'Y', '2015-06-23 16:01:08', NULL),
@@ -270,7 +259,6 @@ CREATE TABLE IF NOT EXISTS `question_category` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.question_category: ~6 rows (approximately)
-DELETE FROM `question_category`;
 /*!40000 ALTER TABLE `question_category` DISABLE KEYS */;
 INSERT INTO `question_category` (`id`, `name`, `link`, `date_created`, `date_updated`) VALUES
 	(1, 'PHP Interview', 'php_interview', '2015-06-23 14:32:46', NULL),
@@ -288,7 +276,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_StartTest`(IN `testid` INT(10))
     DETERMINISTIC
     SQL SECURITY INVOKER
 BEGIN
+
 	SELECT * FROM test WHERE id = testid;
+
 END//
 DELIMITER ;
 
@@ -303,23 +293,75 @@ CREATE TABLE IF NOT EXISTS `tests` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table opsDB.tests: ~0 rows (approximately)
-DELETE FROM `tests`;
 /*!40000 ALTER TABLE `tests` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tests` ENABLE KEYS */;
 
 
--- Dumping structure for table opsDB.test_ans
-CREATE TABLE IF NOT EXISTS `test_ans` (
+-- Dumping structure for table opsDB.test_category
+CREATE TABLE IF NOT EXISTS `test_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `cat_name` varchar(100) NOT NULL,
+  `list_order` tinyint(2) unsigned NOT NULL,
+  `logo` varchar(200) NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cat_name` (`cat_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table opsDB.test_category: ~4 rows (approximately)
+/*!40000 ALTER TABLE `test_category` DISABLE KEYS */;
+INSERT INTO `test_category` (`id`, `cat_name`, `list_order`, `logo`, `date_created`, `date_updated`) VALUES
+	(1, 'PHP', 1, 'http://onlinephpstudy.com/uploads/content_images/php-med-trans.png', '2015-07-18 21:58:34', '2015-07-19 17:15:33'),
+	(2, 'HTML & CSS', 2, 'http://onlinephpstudy.com/uploads/content_images/html_css.png', '2015-07-18 22:56:09', '2015-07-19 17:15:46'),
+	(3, 'MySQL', 3, 'http://onlinephpstudy.com/uploads/content_images/logo-mysql-110x57.png', '2015-07-16 15:06:46', '2015-07-19 17:15:50'),
+	(4, 'Java Script and JQuery', 4, 'http://onlinephpstudy.com/uploads/content_images/javascript.png', '2015-07-16 15:06:37', '2015-07-19 17:15:53');
+/*!40000 ALTER TABLE `test_category` ENABLE KEYS */;
+
+
+-- Dumping structure for table opsDB.test_ques
+CREATE TABLE IF NOT EXISTS `test_ques` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `cat_id` int(10) unsigned NOT NULL,
+  `question` text NOT NULL,
+  `level` enum('E','M','H') NOT NULL DEFAULT 'M' COMMENT '{ E : Easy, M : Medium, H : Hard',
+  `active` enum('Y','N') NOT NULL DEFAULT 'N',
+  `date_created` datetime NOT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `test_ques_fk0` (`cat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table opsDB.test_ques: ~13 rows (approximately)
+/*!40000 ALTER TABLE `test_ques` DISABLE KEYS */;
+INSERT INTO `test_ques` (`id`, `cat_id`, `question`, `level`, `active`, `date_created`, `date_updated`) VALUES
+	(1, 1, '<p>What does PHP stand for?</p>', 'E', 'Y', '2015-07-19 15:50:14', '2015-07-19 17:15:25'),
+	(2, 1, '<p>PHP server scripts are surrounded by delimiters, which?</p>', 'E', 'Y', '2015-07-19 17:21:24', NULL),
+	(3, 1, '<p>All variables in PHP start with which symbol?</p>', 'E', 'Y', '2015-07-19 17:26:43', NULL),
+	(4, 1, '<p>The PHP syntax is most similar to:</p>', 'E', 'Y', '2015-07-19 17:28:41', NULL),
+	(5, 1, '<p>How do you get information from a form that is submitted using the "get" method?</p>', 'E', 'Y', '2015-07-19 17:29:59', NULL),
+	(6, 1, '<p>In PHP you can use both single quotes ( \' \' ) and double quotes ( " " ) for strings:</p>', 'E', 'Y', '2015-07-19 17:31:07', NULL),
+	(7, 1, '<p>Include files must have the file extension ".inc"</p>', 'E', 'Y', '2015-07-19 17:32:50', NULL),
+	(8, 1, '<p>What is the correct way to open the file "time.txt" as readable?</p>', 'M', 'Y', '2015-07-19 17:34:40', NULL),
+	(9, 1, '<p>PHP allows you to send emails directly from a script</p>', 'E', 'Y', '2015-07-19 17:36:25', NULL),
+	(10, 2, '<p>Which superglobal variable holds information about headers, paths, and script locations?</p>', 'E', 'Y', '2015-07-19 17:40:20', '2015-08-04 16:17:02'),
+	(11, 1, '<p>The die() and exit() functions do the exact same thing.</p>', 'M', 'Y', '2015-07-19 17:42:12', NULL),
+	(12, 1, '<p>Which one of these variables has an illegal name?</p>', 'E', 'Y', '2015-07-19 17:44:33', NULL),
+	(13, 1, '<p>How do you create an array in PHP?</p>', 'E', 'Y', '2015-07-19 17:48:50', NULL);
+/*!40000 ALTER TABLE `test_ques` ENABLE KEYS */;
+
+
+-- Dumping structure for table opsDB.test_ques_ans
+CREATE TABLE IF NOT EXISTS `test_ques_ans` (
   `q_id` int(10) unsigned NOT NULL,
   `ans` text NOT NULL,
   `mark` tinyint(1) unsigned NOT NULL DEFAULT '0',
   KEY `test_ans_fk0` (`q_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table opsDB.test_ans: ~39 rows (approximately)
-DELETE FROM `test_ans`;
-/*!40000 ALTER TABLE `test_ans` DISABLE KEYS */;
-INSERT INTO `test_ans` (`q_id`, `ans`, `mark`) VALUES
+-- Dumping data for table opsDB.test_ques_ans: ~39 rows (approximately)
+/*!40000 ALTER TABLE `test_ques_ans` DISABLE KEYS */;
+INSERT INTO `test_ques_ans` (`q_id`, `ans`, `mark`) VALUES
 	(1, 'Private Home Page', 0),
 	(1, 'Hypertext Preprocessor', 1),
 	(1, 'Personal Hypertext Processor', 0),
@@ -359,63 +401,7 @@ INSERT INTO `test_ans` (`q_id`, `ans`, `mark`) VALUES
 	(13, '$cars = array("Volvo", "BMW", "Toyota");', 1),
 	(11, 'TRUE', 1),
 	(11, 'FALSE', 0);
-/*!40000 ALTER TABLE `test_ans` ENABLE KEYS */;
-
-
--- Dumping structure for table opsDB.test_category
-CREATE TABLE IF NOT EXISTS `test_category` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `cat_name` varchar(100) NOT NULL,
-  `list_order` tinyint(2) unsigned NOT NULL,
-  `logo` varchar(200) NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `cat_name` (`cat_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
--- Dumping data for table opsDB.test_category: ~4 rows (approximately)
-DELETE FROM `test_category`;
-/*!40000 ALTER TABLE `test_category` DISABLE KEYS */;
-INSERT INTO `test_category` (`id`, `cat_name`, `list_order`, `logo`, `date_created`, `date_updated`) VALUES
-	(1, 'PHP', 1, 'http://onlinephpstudy.com/uploads/content_images/php-med-trans.png', '2015-07-18 21:58:34', '2015-07-19 17:15:33'),
-	(2, 'HTML & CSS', 2, 'http://onlinephpstudy.com/uploads/content_images/html_css.png', '2015-07-18 22:56:09', '2015-07-19 17:15:46'),
-	(3, 'MySQL', 3, 'http://onlinephpstudy.com/uploads/content_images/logo-mysql-110x57.png', '2015-07-16 15:06:46', '2015-07-19 17:15:50'),
-	(4, 'Java Script and JQuery', 4, 'http://onlinephpstudy.com/uploads/content_images/javascript.png', '2015-07-16 15:06:37', '2015-07-19 17:15:53');
-/*!40000 ALTER TABLE `test_category` ENABLE KEYS */;
-
-
--- Dumping structure for table opsDB.test_ques
-CREATE TABLE IF NOT EXISTS `test_ques` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `cat_id` int(10) unsigned NOT NULL,
-  `question` text NOT NULL,
-  `level` enum('E','M','H') NOT NULL DEFAULT 'M' COMMENT '{ E : Easy, M : Medium, H : Hard',
-  `active` enum('Y','N') NOT NULL DEFAULT 'N',
-  `date_created` datetime NOT NULL,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `test_ques_fk0` (`cat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
-
--- Dumping data for table opsDB.test_ques: ~13 rows (approximately)
-DELETE FROM `test_ques`;
-/*!40000 ALTER TABLE `test_ques` DISABLE KEYS */;
-INSERT INTO `test_ques` (`id`, `cat_id`, `question`, `level`, `active`, `date_created`, `date_updated`) VALUES
-	(1, 1, '<p>What does PHP stand for?</p>', 'E', 'Y', '2015-07-19 15:50:14', '2015-07-19 17:15:25'),
-	(2, 1, '<p>PHP server scripts are surrounded by delimiters, which?</p>', 'E', 'Y', '2015-07-19 17:21:24', NULL),
-	(3, 1, '<p>All variables in PHP start with which symbol?</p>', 'E', 'Y', '2015-07-19 17:26:43', NULL),
-	(4, 1, '<p>The PHP syntax is most similar to:</p>', 'E', 'Y', '2015-07-19 17:28:41', NULL),
-	(5, 1, '<p>How do you get information from a form that is submitted using the "get" method?</p>', 'E', 'Y', '2015-07-19 17:29:59', NULL),
-	(6, 1, '<p>In PHP you can use both single quotes ( \' \' ) and double quotes ( " " ) for strings:</p>', 'E', 'Y', '2015-07-19 17:31:07', NULL),
-	(7, 1, '<p>Include files must have the file extension ".inc"</p>', 'E', 'Y', '2015-07-19 17:32:50', NULL),
-	(8, 1, '<p>What is the correct way to open the file "time.txt" as readable?</p>', 'M', 'Y', '2015-07-19 17:34:40', NULL),
-	(9, 1, '<p>PHP allows you to send emails directly from a script</p>', 'E', 'Y', '2015-07-19 17:36:25', NULL),
-	(10, 1, '<p>Which superglobal variable holds information about headers, paths, and script locations?</p>', 'E', 'Y', '2015-07-19 17:40:20', NULL),
-	(11, 1, '<p>The die() and exit() functions do the exact same thing.</p>', 'M', 'Y', '2015-07-19 17:42:12', NULL),
-	(12, 1, '<p>Which one of these variables has an illegal name?</p>', 'E', 'Y', '2015-07-19 17:44:33', NULL),
-	(13, 1, '<p>How do you create an array in PHP?</p>', 'E', 'Y', '2015-07-19 17:48:50', NULL);
-/*!40000 ALTER TABLE `test_ques` ENABLE KEYS */;
+/*!40000 ALTER TABLE `test_ques_ans` ENABLE KEYS */;
 
 
 -- Dumping structure for table opsDB.users
@@ -433,7 +419,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 -- Dumping data for table opsDB.users: 3 rows
-DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `password`, `name`, `img`, `role`, `active`) VALUES
 	(1, 'vnyscn', '1ba12fe09bca323b5eae753fa63bdcb8c5bec96ad00d92a2357c7f58940df21c', 'Vinay Singh Sachan', 'https://pbs.twimg.com/profile_images/3215159954/78c24061158d7e211215d504aff45a47_normal.jpeg', 'ADMIN', 'Y'),

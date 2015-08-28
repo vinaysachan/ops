@@ -64,7 +64,7 @@ ul.left_menu li.active ul li.current a:before{content:"\f00c";color:#2196f3;font
 .breadcrumb_ops > li > i:first-child{padding-right:5px;}
 .breadcrumb_ops > li.bc + li.bc:before{content:"\f105";font-family:FontAwesome;padding:0 15px;}
 .breadcrumb_ops li.bc:first-child:before{content:"\f015";font-family:FontAwesome;padding:0 10px;}
-.box{background:none repeat scroll 0 0 #fff;box-shadow:0 1px 1px rgba(0, 0, 0, 0.15);margin-top:-5px;position:relative;padding-bottom:15px;padding:0px;}
+.box{background:none repeat scroll 0 0 #fff;box-shadow:0 1px 1px rgba(0, 0, 0, 0.15);margin-top:-5px;position:relative;padding-bottom:15px;padding:0px;min-height: 1000px}
 .box h1{background-color:#f8f8f8;border-image:none;font-family:"Roboto Slab",Helvetica,Arial,sans-serif;font-size:20px;font-weight:400;letter-spacing:1px;line-height:30px;margin:0;padding:15px;}
 .p0{padding:0px !important;}
 .p5{padding:5px;}

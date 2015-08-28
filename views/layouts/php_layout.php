@@ -25,7 +25,7 @@
             });
         </script>
     </head>
-    <body>
+    <body><?php include_once("views/layouts/analyticstracking.php") ?>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">

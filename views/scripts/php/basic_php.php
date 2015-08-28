@@ -2,7 +2,7 @@
 
 if (!empty($this->pageContent)) {
     foreach ($this->pageContent as $pageData) {
-	echo $pageData['content'];
+	echo htmlspecialchars_decode($pageData['content']);
     }
 }
 ?>

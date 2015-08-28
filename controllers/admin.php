@@ -96,7 +96,7 @@ class Admin extends Controller {
 		    'parent' => $_POST['ppage'],
 		    'page_heading' => $_POST['page_heading'],
 		    'site_path' => $_POST['site_path'],
-		    'content' => $_POST['content'],
+		    'content' => htmlspecialchars($_POST['content']),
 		    'active' => $_POST['status'],
 		    'date_created' => date("Y-m-d H:i:s")
 		];
@@ -117,7 +117,7 @@ class Admin extends Controller {
 			'parent' => $_POST['ppage'],
 			'page_heading' => $_POST['page_heading'],
 			'site_path' => $_POST['site_path'],
-			'content' => $_POST['content'],
+			'content' => htmlspecialchars($_POST['content']),
 			'active' => $_POST['status']
 		    ];
 		    $this->model->contentUpdate($data, $id);
